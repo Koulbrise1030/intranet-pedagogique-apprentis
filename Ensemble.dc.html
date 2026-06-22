@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: #f6f3ec; font-family: 'Figtree', sans-serif; color: #221e18; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  @keyframes pulsemove { 0%,100% { transform: translateX(0); } 50% { transform: translateX(6px); } }
+</style>
+</helmet>
+
+<div style="min-height:100vh; background:#f6f3ec;">
+
+  <!-- NAV -->
+  <nav style="position:sticky; top:0; z-index:50; display:flex; align-items:center; justify-content:space-between; gap:24px; padding:14px 32px; background:rgba(246,243,236,0.88); backdrop-filter:blur(10px); border-bottom:1px solid #e7e1d4;">
+    <a href="Accueil.dc.html" style="display:flex; align-items:center; gap:10px; text-decoration:none;">
+      <span style="display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border-radius:9px; background:#221e18; color:#f6f3ec; font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:18px;">V</span>
+      <span style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:18px; letter-spacing:-0.02em;">VéloFlux</span>
+    </a>
+    <div style="display:flex; align-items:center; gap:4px; flex-wrap:wrap;">
+      <a href="Accueil.dc.html" style="text-decoration:none; font-weight:500; font-size:14px; padding:7px 12px; border-radius:8px; color:#3a3429;">Accueil</a>
+      <a href="VeloTech.dc.html" style="text-decoration:none; font-weight:500; font-size:14px; padding:7px 12px; border-radius:8px; color:#3a3429;">VeloTech</a>
+      <a href="StockFlow.dc.html" style="text-decoration:none; font-weight:500; font-size:14px; padding:7px 12px; border-radius:8px; color:#3a3429;">StockFlow</a>
+      <a href="CycloShop.dc.html" style="text-decoration:none; font-weight:500; font-size:14px; padding:7px 12px; border-radius:8px; color:#3a3429;">CycloShop</a>
+      <a href="Ensemble.dc.html" style="text-decoration:none; font-weight:600; font-size:14px; padding:7px 12px; border-radius:8px; background:#221e18; color:#f6f3ec;">Comment elles travaillent ensemble</a>
+      <a href="Glossaire.dc.html" style="text-decoration:none; font-weight:500; font-size:14px; padding:7px 12px; border-radius:8px; color:#3a3429;">Glossaire</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header style="max-width:1080px; margin:0 auto; padding:64px 32px 24px;">
+    <div style="display:inline-flex; align-items:center; gap:8px; padding:6px 14px; border-radius:999px; background:#fff; border:1px solid #e7e1d4; font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.04em; color:#6f675a; margin-bottom:24px;">LE GRAND TOUR · LES TROIS FLUX</div>
+    <h1 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:54px; line-height:1.03; letter-spacing:-0.03em; margin:0 0 18px; max-width:820px;">Comment les trois entreprises travaillent ensemble</h1>
+    <p style="font-size:20px; line-height:1.55; color:#4a4338; max-width:700px; margin:0;">Trois circulations se superposent : la <strong>marchandise</strong> qui descend vers le client, l'<strong>argent</strong> qui remonte vers les fournisseurs, et les <strong>documents</strong> qui accompagnent chaque échange.</p>
+  </header>
+
+  <!-- SCHEMA CENTRAL DES FLUX -->
+  <section style="max-width:1080px; margin:0 auto; padding:28px 32px 8px;">
+    <div style="background:#fff; border:1px solid #e7e1d4; border-radius:20px; padding:34px 28px; box-shadow:0 1px 2px rgba(0,0,0,0.03);">
+      <h2 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:26px; letter-spacing:-0.02em; margin:0 0 24px;">Le schéma central des flux</h2>
+
+      <!-- ligne flux physique -->
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+        <span style="display:inline-block; width:34px; height:6px; border-radius:3px; background:#1f7a6b;"></span>
+        <span style="font-weight:700; font-size:13px; color:#1f7a6b;">FLUX PHYSIQUE — la marchandise avance vers le client →</span>
+      </div>
+      <!-- nodes -->
+      <div style="display:flex; align-items:stretch; gap:0; overflow-x:auto; padding:6px 0 2px;">
+        <div style="flex:1; min-width:120px; text-align:center; background:#f3efe6; border:1px dashed #cfc7b6; border-radius:12px; padding:14px 8px;"><div style="font-size:22px;">🏭</div><div style="font-weight:700; font-size:13px; margin-top:4px;">Fournisseurs</div></div>
+        <div style="flex:0 0 44px; display:flex; align-items:center; justify-content:center; color:#1f7a6b; font-size:20px;">→</div>
+        <div style="flex:1; min-width:120px; text-align:center; background:#e9f1ec; border:1px solid #2f6f4e; border-radius:12px; padding:14px 8px;"><div style="font-size:22px;">⚙️</div><div style="font-weight:700; font-size:13px; margin-top:4px; color:#2f6f4e;">VeloTech</div></div>
+        <div style="flex:0 0 44px; display:flex; align-items:center; justify-content:center; color:#1f7a6b; font-size:20px;">→</div>
+        <div style="flex:1; min-width:120px; text-align:center; background:#f6ecd6; border:1px solid #b07d18; border-radius:12px; padding:14px 8px;"><div style="font-size:22px;">📦</div><div style="font-weight:700; font-size:13px; margin-top:4px; color:#946716;">StockFlow</div></div>
+        <div style="flex:0 0 44px; display:flex; align-items:center; justify-content:center; color:#1f7a6b; font-size:20px;">→</div>
+        <div style="flex:1; min-width:120px; text-align:center; background:#e7edf8; border:1px solid #2f5fae; border-radius:12px; padding:14px 8px;"><div style="font-size:22px;">🛒</div><div style="font-weight:700; font-size:13px; margin-top:4px; color:#2f5fae;">CycloShop</div></div>
+        <div style="flex:0 0 44px; display:flex; align-items:center; justify-content:center; color:#1f7a6b; font-size:20px;">→</div>
+        <div style="flex:1; min-width:120px; text-align:center; background:#f3efe6; border:1px dashed #cfc7b6; border-radius:12px; padding:14px 8px;"><div style="font-size:22px;">🚴</div><div style="font-weight:700; font-size:13px; margin-top:4px;">Client</div></div>
+      </div>
+
+      <!-- ligne flux financier -->
+      <div style="display:flex; align-items:center; gap:10px; margin:22px 0 8px;">
+        <span style="display:inline-block; width:34px; height:6px; border-radius:3px; background:#c98a1a;"></span>
+        <span style="font-weight:700; font-size:13px; color:#a8730f;">← FLUX FINANCIER — l'argent remonte vers les fournisseurs</span>
+      </div>
+      <div style="display:flex; align-items:center; gap:0; overflow-x:auto;">
+        <div style="flex:1; min-width:120px; text-align:center; font-family:'Space Mono',monospace; font-size:12px; color:#a8730f;">paie composants</div>
+        <div style="flex:0 0 44px; text-align:center; color:#c98a1a; font-size:20px;">←</div>
+        <div style="flex:1; min-width:120px; text-align:center; font-family:'Space Mono',monospace; font-size:12px; color:#a8730f;">CHF 1 800</div>
+        <div style="flex:0 0 44px; text-align:center; color:#c98a1a; font-size:20px;">←</div>
+        <div style="flex:1; min-width:120px; text-align:center; font-family:'Space Mono',monospace; font-size:12px; color:#a8730f;">CHF 2 100</div>
+        <div style="flex:0 0 44px; text-align:center; color:#c98a1a; font-size:20px;">←</div>
+        <div style="flex:1; min-width:120px; text-align:center; font-family:'Space Mono',monospace; font-size:12px; color:#a8730f;">CHF 2 990</div>
+        <div style="flex:0 0 44px; text-align:center; color:#c98a1a; font-size:20px;">←</div>
+        <div style="flex:1; min-width:120px; text-align:center; font-family:'Space Mono',monospace; font-size:12px; color:#a8730f;">paie le vélo</div>
+      </div>
+
+      <!-- legende des 3 flux -->
+      <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:24px; border-top:1px solid #eee5d6; padding-top:18px;">
+        <div style="display:flex; align-items:center; gap:8px;"><span style="width:14px; height:14px; border-radius:4px; background:#1f7a6b; display:inline-block;"></span><span style="font-size:13px; color:#4a4338;"><strong>Flux physique</strong> · les vélos (📦 →)</span></div>
+        <div style="display:flex; align-items:center; gap:8px;"><span style="width:14px; height:14px; border-radius:4px; background:#c98a1a; display:inline-block;"></span><span style="font-size:13px; color:#4a4338;"><strong>Flux financier</strong> · l'argent (💰 ←)</span></div>
+        <div style="display:flex; align-items:center; gap:8px;"><span style="width:14px; height:14px; border-radius:4px; background:#5b5447; display:inline-block;"></span><span style="font-size:13px; color:#4a4338;"><strong>Flux documentaire</strong> · les papiers (📄 ↔)</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLUX DOCUMENTAIRE -->
+  <section style="max-width:1080px; margin:0 auto; padding:48px 32px 8px;">
+    <p style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.08em; color:#6f675a; margin:0 0 8px;">FLUX DOCUMENTAIRE</p>
+    <h2 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:30px; letter-spacing:-0.02em; margin:0 0 8px;">Qui envoie quoi à qui</h2>
+    <p style="font-size:15px; color:#6f675a; margin:0 0 24px; max-width:660px;">Chaque transaction laisse une trace écrite. Voici les principaux documents et leur sens de circulation.</p>
+
+    <div style="background:#fff; border:1px solid #e7e1d4; border-radius:16px; overflow:hidden;">
+      <div style="display:grid; grid-template-columns:1.4fr 1fr 1fr 1.4fr; gap:0; background:#221e18; color:#f6f3ec; font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.04em;">
+        <div style="padding:12px 16px;">DOCUMENT</div>
+        <div style="padding:12px 16px;">DE</div>
+        <div style="padding:12px 16px;">VERS</div>
+        <div style="padding:12px 16px;">QUAND</div>
+      </div>
+      <div style="display:grid; grid-template-columns:1.4fr 1fr 1fr 1.4fr; font-size:13.5px; border-bottom:1px solid #f0ebe0;"><div style="padding:12px 16px; font-weight:600;">📄 Bon de commande</div><div style="padding:12px 16px;">CycloShop</div><div style="padding:12px 16px;">StockFlow</div><div style="padding:12px 16px; color:#6f675a;">stock magasin bas</div></div>
+      <div style="display:grid; grid-template-columns:1.4fr 1fr 1fr 1.4fr; font-size:13.5px; border-bottom:1px solid #f0ebe0; background:#faf8f3;"><div style="padding:12px 16px; font-weight:600;">📄 Bon de commande</div><div style="padding:12px 16px;">StockFlow</div><div style="padding:12px 16px;">VeloTech</div><div style="padding:12px 16px; color:#6f675a;">stock entrepôt bas</div></div>
+      <div style="display:grid; grid-template-columns:1.4fr 1fr 1fr 1.4fr; font-size:13.5px; border-bottom:1px solid #f0ebe0;"><div style="padding:12px 16px; font-weight:600;">📄 Bon de commande</div><div style="padding:12px 16px;">VeloTech</div><div style="padding:12px 16px;">Fournisseurs</div><div style="padding:12px 16px; color:#6f675a;">composants bas</div></div>
+      <div style="display:grid; grid-template-columns:1.4fr 1fr 1fr 1.4fr; font-size:13.5px; border-bottom:1px solid #f0ebe0; background:#faf8f3;"><div style="padding:12px 16px; font-weight:600;">🚚 Bulletin de livraison</div><div style="padding:12px 16px;">VeloTech</div><div style="padding:12px 16px;">StockFlow</div><div style="padding:12px 16px; color:#6f675a;">à chaque livraison</div></div>
+      <div style="display:grid; grid-template-columns:1.4fr 1fr 1fr 1.4fr; font-size:13.5px; border-bottom:1px solid #f0ebe0;"><div style="padding:12px 16px; font-weight:600;">🚚 Bulletin de livraison</div><div style="padding:12px 16px;">StockFlow</div><div style="padding:12px 16px;">CycloShop</div><div style="padding:12px 16px; color:#6f675a;">à chaque livraison</div></div>
+      <div style="display:grid; grid-template-columns:1.4fr 1fr 1fr 1.4fr; font-size:13.5px; border-bottom:1px solid #f0ebe0; background:#faf8f3;"><div style="padding:12px 16px; font-weight:600;">🧾 Facture</div><div style="padding:12px 16px;">VeloTech</div><div style="padding:12px 16px;">StockFlow</div><div style="padding:12px 16px; color:#6f675a;">après livraison</div></div>
+      <div style="display:grid; grid-template-columns:1.4fr 1fr 1fr 1.4fr; font-size:13.5px; border-bottom:1px solid #f0ebe0;"><div style="padding:12px 16px; font-weight:600;">🧾 Facture</div><div style="padding:12px 16px;">StockFlow</div><div style="padding:12px 16px;">CycloShop</div><div style="padding:12px 16px; color:#6f675a;">après livraison</div></div>
+      <div style="display:grid; grid-template-columns:1.4fr 1fr 1fr 1.4fr; font-size:13.5px; background:#faf8f3;"><div style="padding:12px 16px; font-weight:600;">✅ Quittance</div><div style="padding:12px 16px;">CycloShop</div><div style="padding:12px 16px;">Client</div><div style="padding:12px 16px; color:#6f675a;">au paiement</div></div>
+    </div>
+  </section>
+
+  <!-- EXEMPLE INTERACTIF -->
+  <section style="max-width:1080px; margin:0 auto; padding:52px 32px 8px;">
+    <p style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.08em; color:#6f675a; margin:0 0 8px;">EXEMPLE DÉROULÉ · INTERACTIF</p>
+    <h2 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:30px; letter-spacing:-0.02em; margin:0 0 8px;">Que se passe-t-il quand un client achète un vélo ?</h2>
+    <p style="font-size:15px; color:#6f675a; margin:0 0 24px; max-width:680px;">Suis la marchandise 📦, l'argent 💰 et les documents 📄 à chaque étape. Avance pas à pas pour voir la réaction en chaîne remonter jusqu'aux fournisseurs.</p>
+
+    <div style="background:#fff; border:1px solid #e7e1d4; border-radius:20px; padding:28px; box-shadow:0 1px 2px rgba(0,0,0,0.03);">
+
+      <!-- track des acteurs -->
+      <div style="display:flex; align-items:stretch; gap:6px; overflow-x:auto; padding-bottom:6px;">
+        <sc-for list="{{ actors }}" as="a" hint-placeholder-count="5">
+          <div style="{{ a.boxStyle }}">
+            <div style="font-size:22px;">{{ a.emoji }}</div>
+            <div style="font-weight:700; font-size:12.5px; margin-top:3px;">{{ a.name }}</div>
+          </div>
+        </sc-for>
+      </div>
+
+      <!-- carte de mouvement -->
+      <div style="margin-top:24px; background:#faf8f3; border:1px solid #eee5d6; border-radius:16px; padding:22px;">
+        <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-bottom:18px;">
+          <span style="font-family:'Space Mono',monospace; font-size:12px; color:#6f675a;">ÉTAPE {{ stepNum }} / {{ stepTotal }}</span>
+          <span style="{{ badgeStyle }}">{{ badgeText }}</span>
+        </div>
+
+        <!-- de -> vers -->
+        <div style="display:flex; align-items:center; gap:14px; flex-wrap:nowrap; margin-bottom:18px;">
+          <div style="flex:1; min-width:90px; text-align:center; background:#fff; border:1px solid #e7e1d4; border-radius:12px; padding:14px 8px;">
+            <div style="font-size:11px; color:#8a8170; font-family:'Space Mono',monospace;">DE</div>
+            <div style="font-weight:700; font-size:14px; margin-top:2px;">{{ fromLabel }}</div>
+          </div>
+          <div style="flex:0 0 auto; display:flex; flex-direction:column; align-items:center;">
+            <div style="font-size:28px; animation:pulsemove 1.4s ease-in-out infinite;">{{ icon }}</div>
+            <div style="font-size:22px; color:#a89e8a; line-height:1;">→</div>
+          </div>
+          <div style="flex:1; min-width:90px; text-align:center; background:#fff; border:1px solid #e7e1d4; border-radius:12px; padding:14px 8px;">
+            <div style="font-size:11px; color:#8a8170; font-family:'Space Mono',monospace;">VERS</div>
+            <div style="font-weight:700; font-size:14px; margin-top:2px;">{{ toLabel }}</div>
+          </div>
+        </div>
+
+        <h3 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:21px; margin:0 0 8px;">{{ stepTitle }}</h3>
+        <p style="font-size:15px; line-height:1.55; color:#4a4338; margin:0 0 14px;">{{ stepDesc }}</p>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <span style="font-family:'Space Mono',monospace; font-size:12px; background:#fff; border:1px solid #e7e1d4; padding:5px 11px; border-radius:8px;">{{ moveLabel }}</span>
+          <span style="font-family:'Space Mono',monospace; font-size:12px; background:#221e18; color:#f6f3ec; padding:5px 11px; border-radius:8px;">{{ moveAmount }}</span>
+        </div>
+      </div>
+
+      <!-- controls -->
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:14px; margin-top:20px; flex-wrap:wrap;">
+        <div style="display:flex; gap:6px;">
+          <sc-for list="{{ dots }}" as="d" hint-placeholder-count="10">
+            <button onClick="{{ d.onClick }}" style="{{ d.style }}"></button>
+          </sc-for>
+        </div>
+        <div style="display:flex; gap:10px;">
+          <button onClick="{{ prev }}" style="font-family:'Figtree',sans-serif; font-weight:600; font-size:14px; padding:10px 18px; border-radius:10px; border:1px solid #e7e1d4; background:#fff; color:#221e18; cursor:pointer;">← Précédent</button>
+          <button onClick="{{ next }}" style="font-family:'Figtree',sans-serif; font-weight:600; font-size:14px; padding:10px 18px; border-radius:10px; border:none; background:#221e18; color:#f6f3ec; cursor:pointer;">{{ nextLabel }}</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- A RETENIR -->
+  <section style="max-width:1080px; margin:0 auto; padding:44px 32px 8px;">
+    <div style="background:#221e18; color:#f6f3ec; border-radius:20px; padding:34px 30px; display:flex; gap:22px; flex-wrap:wrap; align-items:center;">
+      <div style="font-size:38px;">💡</div>
+      <div style="flex:1; min-width:280px;">
+        <p style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.08em; color:#b9b09c; margin:0 0 8px;">À RETENIR</p>
+        <p style="font-size:19px; line-height:1.55; margin:0; max-width:780px;">Un seul achat client déclenche une <strong>réaction en chaîne</strong> dans tout l'écosystème : chaque entreprise recommande à son fournisseur pour reconstituer son stock. La marge se construit à chaque étape — CHF 1 800 → 2 100 → 2 990 — et c'est ce qui rémunère le travail de chaque maillon.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEXT -->
+  <section style="max-width:1080px; margin:0 auto; padding:36px 32px 80px;">
+    <a href="Glossaire.dc.html" style="text-decoration:none; display:block;">
+      <div style="background:#fff; border:1px solid #e7e1d4; border-radius:16px; padding:24px 26px; display:flex; align-items:center; justify-content:space-between; gap:16px;">
+        <div>
+          <div style="font-family:'Space Mono',monospace; font-size:11px; color:#6f675a;">POUR ALLER PLUS LOIN</div>
+          <div style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:22px; margin-top:2px;">📚 Le glossaire des termes commerciaux</div>
+        </div>
+        <span style="font-size:22px;">→</span>
+      </div>
+    </a>
+  </section>
+
+  <footer style="border-top:1px solid #e7e1d4; padding:28px 32px; text-align:center;">
+    <p style="font-family:'Space Mono',monospace; font-size:12px; color:#9a917f; margin:0;">VéloFlux · écosystème fictif à but pédagogique · données d'exemple inventées</p>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { step: 0 };
+
+  baseActors = [
+    { name: "Fournisseurs", emoji: "🏭", color: "#6f675a", bg: "#f3efe6", border: "#cfc7b6" },
+    { name: "VeloTech", emoji: "⚙️", color: "#2f6f4e", bg: "#e9f1ec", border: "#2f6f4e" },
+    { name: "StockFlow", emoji: "📦", color: "#946716", bg: "#f6ecd6", border: "#b07d18" },
+    { name: "CycloShop", emoji: "🛒", color: "#2f5fae", bg: "#e7edf8", border: "#2f5fae" },
+    { name: "Client", emoji: "🚴", color: "#6f675a", bg: "#f3efe6", border: "#cfc7b6" },
+  ];
+
+  // type: 'phys' (marchandise), 'fin' (argent), 'doc' (document)
+  steps = [
+    { from: 3, to: 4, type: "doc", title: "Le client choisit son vélo", desc: "Chez CycloShop, un client repère le modèle à CHF 2 990. Le vendeur le conseille et lui remet un devis, sans engagement.", label: "📄 Devis", amount: "CHF 2 990" },
+    { from: 4, to: 3, type: "fin", title: "Le client paie", desc: "Le client accepte et règle son achat à la caisse. C'est le seul moment où de l'argent neuf entre dans tout le circuit.", label: "💰 Paiement client", amount: "CHF 2 990" },
+    { from: 3, to: 4, type: "phys", title: "CycloShop remet le vélo", desc: "Le client repart avec son vélo électrique et une quittance qui prouve qu'il a payé.", label: "📦 Vélo + ✅ quittance", amount: "1 vélo" },
+    { from: 3, to: 2, type: "doc", title: "Le magasin se réapprovisionne", desc: "Il reste un vélo de moins en rayon. CycloShop envoie un bon de commande à StockFlow pour le remplacer.", label: "📄 Bon de commande", amount: "1 vélo" },
+    { from: 2, to: 3, type: "phys", title: "StockFlow expédie", desc: "StockFlow prélève un vélo de l'entrepôt et le livre à CycloShop, accompagné d'un bulletin de livraison et d'une facture.", label: "📦 Vélo + 🚚 bulletin + 🧾 facture", amount: "CHF 2 100" },
+    { from: 3, to: 2, type: "fin", title: "CycloShop paie StockFlow", desc: "À réception de la facture, CycloShop (le débiteur) règle StockFlow (le créancier).", label: "💰 Paiement de la facture", amount: "CHF 2 100" },
+    { from: 2, to: 1, type: "doc", title: "L'entrepôt se réapprovisionne", desc: "Le stock de l'entrepôt passe sous le stock de sécurité. StockFlow commande de nouveaux vélos à VeloTech.", label: "📄 Bon de commande", amount: "lot de vélos" },
+    { from: 1, to: 2, type: "phys", title: "VeloTech fabrique et livre", desc: "VeloTech assemble les vélos commandés et les expédie à StockFlow, bulletin de livraison et facture joints.", label: "📦 Vélos + 🚚 bulletin + 🧾 facture", amount: "CHF 1 800 / vélo" },
+    { from: 2, to: 1, type: "fin", title: "StockFlow paie VeloTech", desc: "StockFlow règle à son tour la facture du fabricant.", label: "💰 Paiement de la facture", amount: "CHF 1 800 / vélo" },
+    { from: 0, to: 1, type: "phys", title: "VeloTech reconstitue ses composants", desc: "Pour pouvoir produire le prochain vélo, VeloTech commande cadres, moteurs et batteries à ses fournisseurs et les paie. La boucle est bouclée.", label: "📦 Composants (💰 payés en retour)", amount: "≈ CHF 1 200 / vélo" },
+  ];
+
+  typeMeta = {
+    phys: { text: "FLUX PHYSIQUE", icon: "📦", color: "#1f7a6b", bg: "#e3f1ee" },
+    fin:  { text: "FLUX FINANCIER", icon: "💰", color: "#a8730f", bg: "#f7eed7" },
+    doc:  { text: "FLUX DOCUMENTAIRE", icon: "📄", color: "#5b5447", bg: "#efece4" },
+  };
+
+  go(i) {
+    const n = this.steps.length;
+    const next = ((i % n) + n) % n;
+    this.setState({ step: next });
+  }
+
+  renderVals() {
+    const step = this.state.step;
+    const s = this.steps[step];
+    const meta = this.typeMeta[s.type];
+    const active = [s.from, s.to];
+
+    const actors = this.baseActors.map((a, idx) => {
+      const on = active.includes(idx);
+      const boxStyle = `flex:1; min-width:108px; text-align:center; border-radius:12px; padding:14px 8px; transition:all .25s ease; `
+        + (on
+            ? `background:${a.bg}; border:2px solid ${a.border}; color:${a.color}; opacity:1; transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,0,0,0.06);`
+            : `background:#f6f3ec; border:1px solid #e7e1d4; color:#a89e8a; opacity:0.55;`);
+      return { name: a.name, emoji: a.emoji, boxStyle };
+    });
+
+    const dots = this.steps.map((_, idx) => ({
+      onClick: () => this.go(idx),
+      style: `width:${idx === step ? 26 : 10}px; height:10px; border-radius:999px; border:none; cursor:pointer; padding:0; transition:all .25s ease; background:${idx === step ? "#221e18" : "#d8d1c2"};`,
+    }));
+
+    return {
+      actors,
+      dots,
+      stepNum: step + 1,
+      stepTotal: this.steps.length,
+      stepTitle: s.title,
+      stepDesc: s.desc,
+      fromLabel: this.baseActors[s.from].name,
+      toLabel: this.baseActors[s.to].name,
+      icon: meta.icon,
+      badgeText: meta.text,
+      badgeStyle: `font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.06em; font-weight:700; padding:5px 12px; border-radius:999px; color:${meta.color}; background:${meta.bg};`,
+      moveLabel: s.label,
+      moveAmount: s.amount,
+      prev: () => this.go(step - 1),
+      next: () => this.go(step + 1),
+      nextLabel: step === this.steps.length - 1 ? "Recommencer ↺" : "Suivant →",
+    };
+  }
+}
+</script>
+</body>
+</html>

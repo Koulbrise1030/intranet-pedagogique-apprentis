@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: #f6f3ec; font-family: 'Figtree', sans-serif; color: #221e18; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+</style>
+</helmet>
+
+<div style="min-height:100vh; background:#f6f3ec;">
+
+  <!-- NAV -->
+  <nav style="position:sticky; top:0; z-index:50; display:flex; align-items:center; justify-content:space-between; gap:24px; padding:14px 32px; background:rgba(246,243,236,0.88); backdrop-filter:blur(10px); border-bottom:1px solid #e7e1d4;">
+    <a href="Accueil.dc.html" style="display:flex; align-items:center; gap:10px; text-decoration:none;">
+      <span style="display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border-radius:9px; background:#221e18; color:#f6f3ec; font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:18px;">V</span>
+      <span style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:18px; letter-spacing:-0.02em;">VéloFlux</span>
+    </a>
+    <div style="display:flex; align-items:center; gap:4px; flex-wrap:wrap;">
+      <a href="Accueil.dc.html" style="text-decoration:none; font-weight:500; font-size:14px; padding:7px 12px; border-radius:8px; color:#3a3429;">Accueil</a>
+      <a href="VeloTech.dc.html" style="text-decoration:none; font-weight:500; font-size:14px; padding:7px 12px; border-radius:8px; color:#3a3429;">VeloTech</a>
+      <a href="StockFlow.dc.html" style="text-decoration:none; font-weight:500; font-size:14px; padding:7px 12px; border-radius:8px; color:#3a3429;">StockFlow</a>
+      <a href="CycloShop.dc.html" style="text-decoration:none; font-weight:600; font-size:14px; padding:7px 12px; border-radius:8px; background:#2f5fae; color:#fff;">CycloShop</a>
+      <a href="Ensemble.dc.html" style="text-decoration:none; font-weight:500; font-size:14px; padding:7px 12px; border-radius:8px; color:#3a3429;">Comment elles travaillent ensemble</a>
+      <a href="Glossaire.dc.html" style="text-decoration:none; font-weight:500; font-size:14px; padding:7px 12px; border-radius:8px; color:#3a3429;">Glossaire</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header style="background:#e7edf8; border-bottom:1px solid #c5d4ef;">
+    <div style="max-width:1040px; margin:0 auto; padding:56px 32px;">
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:18px;">
+        <span style="font-size:34px;">🛒</span>
+        <span style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.08em; color:#2f5fae; background:#fff; padding:5px 12px; border-radius:999px; border:1px solid #c5d4ef;">ENTREPRISE 3 / 3 · LA VENTE</span>
+      </div>
+      <h1 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:52px; line-height:1.04; letter-spacing:-0.03em; margin:0 0 18px; color:#2f5fae;">CycloShop SA</h1>
+      <p style="font-size:21px; line-height:1.5; color:#26324a; max-width:680px; margin:0 0 26px;"><strong>Mission :</strong> conseiller et vendre des vélos électriques aux clients finaux, en magasin et en ligne, et les accompagner après l'achat.</p>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <div style="background:#fff; border:1px solid #c5d4ef; border-radius:12px; padding:12px 18px;"><div style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:22px; color:#2f5fae;">1 magasin + en ligne</div><div style="font-size:12px; color:#6f675a;">canaux de vente</div></div>
+        <div style="background:#fff; border:1px solid #c5d4ef; border-radius:12px; padding:12px 18px;"><div style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:22px; color:#2f5fae;">≈ 120 / mois</div><div style="font-size:12px; color:#6f675a;">vélos vendus</div></div>
+        <div style="background:#fff; border:1px solid #c5d4ef; border-radius:12px; padding:12px 18px;"><div style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:22px; color:#2f5fae;">CHF 2 990</div><div style="font-size:12px; color:#6f675a;">prix de vente client</div></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ORGANIGRAMME -->
+  <section style="max-width:1040px; margin:0 auto; padding:56px 32px 8px;">
+    <p style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.08em; color:#6f675a; margin:0 0 8px;">ORGANIGRAMME</p>
+    <h2 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:30px; letter-spacing:-0.02em; margin:0 0 8px;">Qui fait quoi chez CycloShop</h2>
+    <p style="font-size:15px; color:#6f675a; margin:0 0 30px; max-width:640px;">Une direction et quatre équipes au contact direct du client.</p>
+
+    <div style="display:flex; flex-direction:column; align-items:center;">
+      <div style="background:#2f5fae; color:#fff; border-radius:14px; padding:18px 26px; text-align:center; min-width:260px;">
+        <div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.06em; opacity:0.85;">DIRECTION</div>
+        <div style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:19px; margin-top:4px;">Anouk Favre</div>
+        <div style="font-size:13px; opacity:0.92;">Directrice</div>
+      </div>
+      <div style="width:2px; height:28px; background:#c5d4ef;"></div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:14px;">
+      <div style="background:#fff; border:1px solid #d3deef; border-radius:14px; padding:18px;">
+        <div style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:0.05em; color:#2f5fae;">MAGASIN / VENTE CONSEIL</div>
+        <div style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:16px; margin:4px 0 2px;">Lucas Brun</div>
+        <div style="font-size:12px; color:#6f675a; margin-bottom:10px;">Responsable magasin</div>
+        <div style="font-size:12px; color:#4a4338; line-height:1.5; border-top:1px solid #e8eefa; padding-top:8px;">Accueille, conseille et vend en boutique ; forme l'équipe de vente.</div>
+        <div style="font-size:11px; color:#8a8170; margin-top:8px;">+ 4 vendeur·euse·s · 1 apprenti·e</div>
+      </div>
+      <div style="background:#fff; border:1px solid #d3deef; border-radius:14px; padding:18px;">
+        <div style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:0.05em; color:#2f5fae;">BOUTIQUE EN LIGNE</div>
+        <div style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:16px; margin:4px 0 2px;">Sara Kaufmann</div>
+        <div style="font-size:12px; color:#6f675a; margin-bottom:10px;">Responsable e-commerce</div>
+        <div style="font-size:12px; color:#4a4338; line-height:1.5; border-top:1px solid #e8eefa; padding-top:8px;">Gère le site, les commandes en ligne et les expéditions aux clients.</div>
+        <div style="font-size:11px; color:#8a8170; margin-top:8px;">+ 2 gestionnaires de commandes</div>
+      </div>
+      <div style="background:#fff; border:1px solid #d3deef; border-radius:14px; padding:18px;">
+        <div style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:0.05em; color:#2f5fae;">ATELIER / SAV</div>
+        <div style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:16px; margin:4px 0 2px;">Reto Frei</div>
+        <div style="font-size:12px; color:#6f675a; margin-bottom:10px;">Responsable atelier</div>
+        <div style="font-size:12px; color:#4a4338; line-height:1.5; border-top:1px solid #e8eefa; padding-top:8px;">Prépare les vélos avant remise, assure garantie et réparations.</div>
+        <div style="font-size:11px; color:#8a8170; margin-top:8px;">+ 3 mécanicien·ne·s</div>
+      </div>
+      <div style="background:#fff; border:1px solid #d3deef; border-radius:14px; padding:18px;">
+        <div style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:0.05em; color:#2f5fae;">CAISSE & ADMIN.</div>
+        <div style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:16px; margin:4px 0 2px;">Inès Morel</div>
+        <div style="font-size:12px; color:#6f675a; margin-bottom:10px;">Responsable caisse & administration</div>
+        <div style="font-size:12px; color:#4a4338; line-height:1.5; border-top:1px solid #e8eefa; padding-top:8px;">Encaisse les paiements, commande à StockFlow et tient la comptabilité.</div>
+        <div style="font-size:11px; color:#8a8170; margin-top:8px;">+ 2 caissier·ère·s · 1 apprenti·e de commerce</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESSUS -->
+  <section style="max-width:1040px; margin:0 auto; padding:56px 32px 8px;">
+    <p style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.08em; color:#6f675a; margin:0 0 8px;">PROCESSUS INTERNE</p>
+    <h2 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:30px; letter-spacing:-0.02em; margin:0 0 8px;">De l'accueil du client au service après-vente</h2>
+    <p style="font-size:15px; color:#6f675a; margin:0 0 30px; max-width:640px;">C'est ici que la marchandise rencontre enfin le client — et que l'argent entre dans le circuit.</p>
+
+    <div style="display:flex; flex-direction:column; gap:0;">
+      <div style="display:flex; gap:20px;">
+        <div style="display:flex; flex-direction:column; align-items:center;">
+          <div style="width:42px; height:42px; border-radius:50%; background:#2f5fae; color:#fff; display:flex; align-items:center; justify-content:center; font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:18px; flex-shrink:0;">1</div>
+          <div style="width:2px; flex:1; background:#c5d4ef; min-height:24px;"></div>
+        </div>
+        <div style="padding-bottom:24px;">
+          <h3 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:19px; margin:6px 0 6px;">Accueil & conseil</h3>
+          <p style="font-size:14px; color:#4a4338; line-height:1.55; margin:0 0 8px; max-width:640px;">Le vendeur accueille le client, comprend son besoin (trajet quotidien ? balade ?) et présente les modèles adaptés. Un essai est proposé.</p>
+        </div>
+      </div>
+      <div style="display:flex; gap:20px;">
+        <div style="display:flex; flex-direction:column; align-items:center;">
+          <div style="width:42px; height:42px; border-radius:50%; background:#2f5fae; color:#fff; display:flex; align-items:center; justify-content:center; font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:18px; flex-shrink:0;">2</div>
+          <div style="width:2px; flex:1; background:#c5d4ef; min-height:24px;"></div>
+        </div>
+        <div style="padding-bottom:24px;">
+          <h3 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:19px; margin:6px 0 6px;">Devis</h3>
+          <p style="font-size:14px; color:#4a4338; line-height:1.55; margin:0 0 8px; max-width:640px;">Pour un achat important ou des accessoires, le vendeur établit un <strong>devis</strong> : le prix proposé, sans engagement. Le client peut comparer et réfléchir.</p>
+          <span style="font-family:'Space Mono',monospace; font-size:11px; color:#2f5fae; background:#e7edf8; padding:3px 9px; border-radius:6px;">📄 Devis émis → client</span>
+        </div>
+      </div>
+      <div style="display:flex; gap:20px;">
+        <div style="display:flex; flex-direction:column; align-items:center;">
+          <div style="width:42px; height:42px; border-radius:50%; background:#2f5fae; color:#fff; display:flex; align-items:center; justify-content:center; font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:18px; flex-shrink:0;">3</div>
+          <div style="width:2px; flex:1; background:#c5d4ef; min-height:24px;"></div>
+        </div>
+        <div style="padding-bottom:24px;">
+          <h3 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:19px; margin:6px 0 6px;">Vente</h3>
+          <p style="font-size:14px; color:#4a4338; line-height:1.55; margin:0 0 8px; max-width:640px;">Le client accepte : le devis devient une <strong>vente</strong>. L'atelier prépare le vélo (réglages, contrôle) pendant la finalisation.</p>
+        </div>
+      </div>
+      <div style="display:flex; gap:20px;">
+        <div style="display:flex; flex-direction:column; align-items:center;">
+          <div style="width:42px; height:42px; border-radius:50%; background:#2f5fae; color:#fff; display:flex; align-items:center; justify-content:center; font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:18px; flex-shrink:0;">4</div>
+          <div style="width:2px; flex:1; background:#c5d4ef; min-height:24px;"></div>
+        </div>
+        <div style="padding-bottom:24px;">
+          <h3 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:19px; margin:6px 0 6px;">Encaissement</h3>
+          <p style="font-size:14px; color:#4a4338; line-height:1.55; margin:0 0 8px; max-width:640px;">Le client paie (carte, TWINT, espèces ou facture). La caisse remet une <strong>quittance</strong> (ticket) qui prouve le paiement. La vente est enregistrée en comptabilité.</p>
+          <span style="font-family:'Space Mono',monospace; font-size:11px; color:#2f5fae; background:#e7edf8; padding:3px 9px; border-radius:6px;">📄 Quittance émise → client</span>
+        </div>
+      </div>
+      <div style="display:flex; gap:20px;">
+        <div style="display:flex; flex-direction:column; align-items:center;">
+          <div style="width:42px; height:42px; border-radius:50%; background:#2f5fae; color:#fff; display:flex; align-items:center; justify-content:center; font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:18px; flex-shrink:0;">5</div>
+          <div style="width:2px; flex:1; background:#c5d4ef; min-height:24px;"></div>
+        </div>
+        <div style="padding-bottom:24px;">
+          <h3 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:19px; margin:6px 0 6px;">Service après-vente</h3>
+          <p style="font-size:14px; color:#4a4338; line-height:1.55; margin:0 0 8px; max-width:640px;">Après l'achat, l'atelier assure la <strong>garantie</strong>, les révisions et les réparations. Un bon service fidélise le client et fait revenir.</p>
+        </div>
+      </div>
+      <div style="display:flex; gap:20px;">
+        <div style="display:flex; flex-direction:column; align-items:center;">
+          <div style="width:42px; height:42px; border-radius:50%; background:#221e18; color:#fff; display:flex; align-items:center; justify-content:center; font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:18px; flex-shrink:0;">↻</div>
+        </div>
+        <div>
+          <h3 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:19px; margin:6px 0 6px;">Réapprovisionnement</h3>
+          <p style="font-size:14px; color:#4a4338; line-height:1.55; margin:0 0 8px; max-width:640px;">À force de vendre, le stock du magasin baisse. La responsable caisse envoie alors un <strong>bon de commande</strong> à StockFlow — et le cycle recommence.</p>
+          <span style="font-family:'Space Mono',monospace; font-size:11px; color:#946716; background:#f6ecd6; padding:3px 9px; border-radius:6px;">📄 Bon de commande émis → StockFlow</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOCUMENTS -->
+  <section style="max-width:1040px; margin:0 auto; padding:56px 32px 8px;">
+    <p style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.08em; color:#6f675a; margin:0 0 8px;">DOCUMENTS</p>
+    <h2 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:30px; letter-spacing:-0.02em; margin:0 0 26px;">Ce que CycloShop émet et reçoit</h2>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px;">
+      <div style="background:#fff; border:1px solid #e7e1d4; border-radius:16px; padding:24px;">
+        <div style="font-weight:700; font-size:15px; color:#2f5fae; margin-bottom:14px;">📤 Documents émis</div>
+        <ul style="margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:10px;">
+          <li style="font-size:14px; line-height:1.4;"><strong>Devis</strong> <span style="color:#6f675a;">→ au client (prix proposé)</span></li>
+          <li style="font-size:14px; line-height:1.4;"><strong>Quittance / ticket de caisse</strong> <span style="color:#6f675a;">→ au client</span></li>
+          <li style="font-size:14px; line-height:1.4;"><strong>Facture</strong> <span style="color:#6f675a;">→ au client (vente à crédit ou entreprise)</span></li>
+          <li style="font-size:14px; line-height:1.4;"><strong>Bon de commande</strong> <span style="color:#6f675a;">→ à StockFlow (réassort)</span></li>
+        </ul>
+      </div>
+      <div style="background:#fff; border:1px solid #e7e1d4; border-radius:16px; padding:24px;">
+        <div style="font-weight:700; font-size:15px; color:#946716; margin-bottom:14px;">📥 Documents reçus</div>
+        <ul style="margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:10px;">
+          <li style="font-size:14px; line-height:1.4;"><strong>Bulletin de livraison</strong> <span style="color:#6f675a;">← de StockFlow</span></li>
+          <li style="font-size:14px; line-height:1.4;"><strong>Facture fournisseur</strong> <span style="color:#6f675a;">← de StockFlow (à payer)</span></li>
+          <li style="font-size:14px; line-height:1.4;"><strong>Bon de commande</strong> <span style="color:#6f675a;">← du client (commande en ligne)</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- LE SAVAIS-TU -->
+  <section style="max-width:1040px; margin:0 auto; padding:44px 32px 8px;">
+    <div style="background:#fff; border:1px solid #e7e1d4; border-left:5px solid #2f5fae; border-radius:14px; padding:24px 26px; display:flex; gap:18px; align-items:flex-start;">
+      <span style="font-size:30px;">🧐</span>
+      <div>
+        <p style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.06em; color:#2f5fae; margin:0 0 6px;">LE SAVAIS-TU ?</p>
+        <p style="font-size:15px; line-height:1.55; margin:0; max-width:740px;">Quand CycloShop reçoit la <strong>facture</strong> de StockFlow, elle devient le <strong>débiteur</strong> (celle qui doit payer) et StockFlow est le <strong>créancier</strong> (celle qui attend l'argent). Ces deux rôles s'inversent à chaque échange selon qui doit de l'argent à qui.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEXT -->
+  <section style="max-width:1040px; margin:0 auto; padding:36px 32px 80px;">
+    <a href="Ensemble.dc.html" style="text-decoration:none; display:block;">
+      <div style="background:#221e18; border-radius:16px; padding:24px 26px; display:flex; align-items:center; justify-content:space-between; gap:16px;">
+        <div>
+          <div style="font-family:'Space Mono',monospace; font-size:11px; color:#b9b09c;">ET MAINTENANT, LE GRAND TOUR</div>
+          <div style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:22px; color:#f6f3ec; margin-top:2px;">🔄 Comment les trois travaillent ensemble</div>
+        </div>
+        <span style="font-size:22px; color:#f6f3ec;">→</span>
+      </div>
+    </a>
+  </section>
+
+  <footer style="border-top:1px solid #e7e1d4; padding:28px 32px; text-align:center;">
+    <p style="font-family:'Space Mono',monospace; font-size:12px; color:#9a917f; margin:0;">VéloFlux · écosystème fictif à but pédagogique · données d'exemple inventées</p>
+  </footer>
+
+</div>
+</x-dc>
+</body>
+</html>

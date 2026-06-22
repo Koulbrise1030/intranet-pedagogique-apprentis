@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: #f6f3ec; font-family: 'Figtree', sans-serif; color: #221e18; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  @keyframes flowdash { to { stroke-dashoffset: -24; } }
+  @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+</style>
+</helmet>
+
+<div style="min-height:100vh; background:#f6f3ec;">
+
+  <!-- NAV -->
+  <nav style="position:sticky; top:0; z-index:50; display:flex; align-items:center; justify-content:space-between; gap:24px; padding:14px 32px; background:rgba(246,243,236,0.88); backdrop-filter:blur(10px); border-bottom:1px solid #e7e1d4;">
+    <a href="Accueil.dc.html" style="display:flex; align-items:center; gap:10px; text-decoration:none;">
+      <span style="display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border-radius:9px; background:#221e18; color:#f6f3ec; font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:18px;">V</span>
+      <span style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:18px; letter-spacing:-0.02em;">VéloFlux</span>
+    </a>
+    <div style="display:flex; align-items:center; gap:4px; flex-wrap:wrap;">
+      <a href="Accueil.dc.html" style="text-decoration:none; font-weight:600; font-size:14px; padding:7px 12px; border-radius:8px; background:#221e18; color:#f6f3ec;">Accueil</a>
+      <a href="VeloTech.dc.html" style="text-decoration:none; font-weight:500; font-size:14px; padding:7px 12px; border-radius:8px; color:#3a3429;">VeloTech</a>
+      <a href="StockFlow.dc.html" style="text-decoration:none; font-weight:500; font-size:14px; padding:7px 12px; border-radius:8px; color:#3a3429;">StockFlow</a>
+      <a href="CycloShop.dc.html" style="text-decoration:none; font-weight:500; font-size:14px; padding:7px 12px; border-radius:8px; color:#3a3429;">CycloShop</a>
+      <a href="Ensemble.dc.html" style="text-decoration:none; font-weight:500; font-size:14px; padding:7px 12px; border-radius:8px; color:#3a3429;">Comment elles travaillent ensemble</a>
+      <a href="Glossaire.dc.html" style="text-decoration:none; font-weight:500; font-size:14px; padding:7px 12px; border-radius:8px; color:#3a3429;">Glossaire</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header style="max-width:1100px; margin:0 auto; padding:72px 32px 40px;">
+    <div style="display:inline-flex; align-items:center; gap:8px; padding:6px 14px; border-radius:999px; background:#fff; border:1px solid #e7e1d4; font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.04em; color:#6f675a; margin-bottom:28px;">SUPPORT PÉDAGOGIQUE · APPRENTI·E DE COMMERCE</div>
+    <h1 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:62px; line-height:1.02; letter-spacing:-0.03em; margin:0 0 24px; max-width:880px; text-wrap:balance;">Trois entreprises, un vélo électrique, un seul circuit.</h1>
+    <p style="font-size:21px; line-height:1.55; color:#4a4338; max-width:660px; margin:0 0 36px;">Découvre comment un produit voyage de l'usine jusqu'au client — et comment l'argent et les documents circulent en sens inverse. Un écosystème fictif mais réaliste pour comprendre <strong>comment les entreprises collaborent vraiment</strong>.</p>
+    <div style="display:flex; gap:14px; flex-wrap:wrap;">
+      <a href="Ensemble.dc.html" style="text-decoration:none; font-weight:600; font-size:16px; padding:13px 22px; border-radius:11px; background:#221e18; color:#f6f3ec;">Suivre un vélo de bout en bout →</a>
+      <a href="#entreprises" style="text-decoration:none; font-weight:600; font-size:16px; padding:13px 22px; border-radius:11px; background:#fff; color:#221e18; border:1px solid #e7e1d4;">Explorer les entreprises</a>
+    </div>
+  </header>
+
+  <!-- ECOSYSTEME EN UN COUP D'OEIL -->
+  <section style="max-width:1100px; margin:0 auto; padding:24px 32px 16px;">
+    <div style="background:#fff; border:1px solid #e7e1d4; border-radius:20px; padding:36px 32px; box-shadow:0 1px 2px rgba(0,0,0,0.03);">
+      <p style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.08em; color:#6f675a; margin:0 0 8px;">L'ÉCOSYSTÈME EN UN COUP D'ŒIL</p>
+      <h2 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:30px; letter-spacing:-0.02em; margin:0 0 28px;">De la matière première au client final</h2>
+
+      <!-- DIAGRAMME DE FLUX -->
+      <div style="display:flex; align-items:stretch; gap:0; flex-wrap:nowrap; overflow-x:auto; padding-bottom:8px;">
+
+        <!-- Fournisseurs -->
+        <div style="flex:1; min-width:150px; display:flex; flex-direction:column; align-items:center; text-align:center;">
+          <div style="width:100%; background:#f3efe6; border:1px dashed #cfc7b6; border-radius:14px; padding:18px 12px;">
+            <div style="font-size:24px;">🏭</div>
+            <div style="font-weight:700; font-size:15px; margin-top:6px;">Fournisseurs</div>
+            <div style="font-size:12px; color:#6f675a; margin-top:4px;">Cadres, batteries, moteurs</div>
+          </div>
+        </div>
+
+        <div style="flex:0 0 56px; display:flex; align-items:center; justify-content:center; padding-top:30px;"><span style="font-size:22px; color:#999;">→</span></div>
+
+        <!-- VeloTech -->
+        <div style="flex:1; min-width:150px; display:flex; flex-direction:column; align-items:center; text-align:center;">
+          <a href="VeloTech.dc.html" style="text-decoration:none; width:100%;">
+            <div style="width:100%; background:#e9f1ec; border:1px solid #2f6f4e; border-radius:14px; padding:18px 12px;">
+              <div style="font-size:24px;">⚙️</div>
+              <div style="font-weight:700; font-size:15px; margin-top:6px; color:#2f6f4e;">VeloTech SA</div>
+              <div style="font-size:12px; color:#4a4338; margin-top:4px;">Fabricant — assemble les vélos</div>
+            </div>
+          </a>
+        </div>
+
+        <div style="flex:0 0 56px; display:flex; align-items:center; justify-content:center; padding-top:30px;"><span style="font-size:22px; color:#999;">→</span></div>
+
+        <!-- StockFlow -->
+        <div style="flex:1; min-width:150px; display:flex; flex-direction:column; align-items:center; text-align:center;">
+          <a href="StockFlow.dc.html" style="text-decoration:none; width:100%;">
+            <div style="width:100%; background:#f6ecd6; border:1px solid #b07d18; border-radius:14px; padding:18px 12px;">
+              <div style="font-size:24px;">📦</div>
+              <div style="font-weight:700; font-size:15px; margin-top:6px; color:#946716;">StockFlow Sàrl</div>
+              <div style="font-size:12px; color:#4a4338; margin-top:4px;">Logistique — stocke et expédie</div>
+            </div>
+          </a>
+        </div>
+
+        <div style="flex:0 0 56px; display:flex; align-items:center; justify-content:center; padding-top:30px;"><span style="font-size:22px; color:#999;">→</span></div>
+
+        <!-- CycloShop -->
+        <div style="flex:1; min-width:150px; display:flex; flex-direction:column; align-items:center; text-align:center;">
+          <a href="CycloShop.dc.html" style="text-decoration:none; width:100%;">
+            <div style="width:100%; background:#e7edf8; border:1px solid #2f5fae; border-radius:14px; padding:18px 12px;">
+              <div style="font-size:24px;">🛒</div>
+              <div style="font-weight:700; font-size:15px; margin-top:6px; color:#2f5fae;">CycloShop SA</div>
+              <div style="font-size:12px; color:#4a4338; margin-top:4px;">Vente — magasin & en ligne</div>
+            </div>
+          </a>
+        </div>
+
+        <div style="flex:0 0 56px; display:flex; align-items:center; justify-content:center; padding-top:30px;"><span style="font-size:22px; color:#999;">→</span></div>
+
+        <!-- Client -->
+        <div style="flex:1; min-width:150px; display:flex; flex-direction:column; align-items:center; text-align:center;">
+          <div style="width:100%; background:#f3efe6; border:1px dashed #cfc7b6; border-radius:14px; padding:18px 12px;">
+            <div style="font-size:24px;">🚴</div>
+            <div style="font-weight:700; font-size:15px; margin-top:6px;">Client final</div>
+            <div style="font-size:12px; color:#6f675a; margin-top:4px;">Achète son vélo</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LEGENDE DES FLUX -->
+      <div style="display:flex; gap:14px; flex-wrap:wrap; margin-top:26px;">
+        <div style="flex:1; min-width:240px; display:flex; gap:12px; align-items:flex-start; background:#f3efe6; border-radius:12px; padding:14px 16px;">
+          <span style="font-size:20px;">📦</span>
+          <div>
+            <div style="font-weight:700; font-size:14px;">Flux physique des marchandises <span style="color:#2f6f4e;">→</span></div>
+            <div style="font-size:13px; color:#6f675a; line-height:1.45;">Les vélos avancent vers la droite : matières → usine → entrepôt → magasin → client.</div>
+          </div>
+        </div>
+        <div style="flex:1; min-width:240px; display:flex; gap:12px; align-items:flex-start; background:#f3efe6; border-radius:12px; padding:14px 16px;">
+          <span style="font-size:20px;">💰</span>
+          <div>
+            <div style="font-weight:700; font-size:14px;">Flux financier <span style="color:#b07d18;">←</span></div>
+            <div style="font-size:13px; color:#6f675a; line-height:1.45;">L'argent remonte vers la gauche : le client paie, et chacun paie son fournisseur en amont.</div>
+          </div>
+        </div>
+        <div style="flex:1; min-width:240px; display:flex; gap:12px; align-items:flex-start; background:#f3efe6; border-radius:12px; padding:14px 16px;">
+          <span style="font-size:20px;">📄</span>
+          <div>
+            <div style="font-weight:700; font-size:14px;">Flux documentaire ↔</div>
+            <div style="font-size:13px; color:#6f675a; line-height:1.45;">Des documents accompagnent chaque échange : commandes, bulletins de livraison, factures.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TROIS ENTREPRISES -->
+  <section id="entreprises" style="max-width:1100px; margin:0 auto; padding:48px 32px 8px;">
+    <p style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.08em; color:#6f675a; margin:0 0 8px;">LES TROIS ACTEURS</p>
+    <h2 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:30px; letter-spacing:-0.02em; margin:0 0 26px;">Trois entreprises indépendantes, un même objectif</h2>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px;">
+
+      <a href="VeloTech.dc.html" style="text-decoration:none; display:block;">
+        <div style="background:#fff; border:1px solid #e7e1d4; border-top:5px solid #2f6f4e; border-radius:16px; padding:24px; height:100%; box-shadow:0 1px 2px rgba(0,0,0,0.03);">
+          <div style="display:flex; align-items:center; justify-content:space-between;">
+            <span style="font-size:30px;">⚙️</span>
+            <span style="font-family:'Space Mono',monospace; font-size:11px; color:#2f6f4e; background:#e9f1ec; padding:4px 10px; border-radius:999px;">FABRICANT</span>
+          </div>
+          <h3 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:22px; margin:16px 0 6px; color:#2f6f4e;">VeloTech SA</h3>
+          <p style="font-size:14px; color:#4a4338; line-height:1.5; margin:0 0 14px;">Achète les composants, assemble les vélos électriques et les vend en gros à la logistique.</p>
+          <span style="font-weight:600; font-size:14px; color:#2f6f4e;">Découvrir l'usine →</span>
+        </div>
+      </a>
+
+      <a href="StockFlow.dc.html" style="text-decoration:none; display:block;">
+        <div style="background:#fff; border:1px solid #e7e1d4; border-top:5px solid #b07d18; border-radius:16px; padding:24px; height:100%; box-shadow:0 1px 2px rgba(0,0,0,0.03);">
+          <div style="display:flex; align-items:center; justify-content:space-between;">
+            <span style="font-size:30px;">📦</span>
+            <span style="font-family:'Space Mono',monospace; font-size:11px; color:#946716; background:#f6ecd6; padding:4px 10px; border-radius:999px;">LOGISTIQUE</span>
+          </div>
+          <h3 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:22px; margin:16px 0 6px; color:#946716;">StockFlow Sàrl</h3>
+          <p style="font-size:14px; color:#4a4338; line-height:1.5; margin:0 0 14px;">Réceptionne, stocke et gère les niveaux de stock, puis expédie les vélos vers le magasin.</p>
+          <span style="font-weight:600; font-size:14px; color:#946716;">Découvrir l'entrepôt →</span>
+        </div>
+      </a>
+
+      <a href="CycloShop.dc.html" style="text-decoration:none; display:block;">
+        <div style="background:#fff; border:1px solid #e7e1d4; border-top:5px solid #2f5fae; border-radius:16px; padding:24px; height:100%; box-shadow:0 1px 2px rgba(0,0,0,0.03);">
+          <div style="display:flex; align-items:center; justify-content:space-between;">
+            <span style="font-size:30px;">🛒</span>
+            <span style="font-family:'Space Mono',monospace; font-size:11px; color:#2f5fae; background:#e7edf8; padding:4px 10px; border-radius:999px;">VENTE</span>
+          </div>
+          <h3 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:22px; margin:16px 0 6px; color:#2f5fae;">CycloShop SA</h3>
+          <p style="font-size:14px; color:#4a4338; line-height:1.5; margin:0 0 14px;">Vend aux clients finaux, encaisse les paiements et recommande des vélos quand le stock baisse.</p>
+          <span style="font-weight:600; font-size:14px; color:#2f5fae;">Découvrir le magasin →</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- A RETENIR -->
+  <section style="max-width:1100px; margin:0 auto; padding:44px 32px 8px;">
+    <div style="background:#221e18; color:#f6f3ec; border-radius:20px; padding:36px 32px; display:flex; gap:24px; flex-wrap:wrap; align-items:center;">
+      <div style="font-size:40px; animation:floaty 3s ease-in-out infinite;">💡</div>
+      <div style="flex:1; min-width:280px;">
+        <p style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.08em; color:#b9b09c; margin:0 0 8px;">À RETENIR</p>
+        <p style="font-size:19px; line-height:1.55; margin:0; max-width:760px;">Dans une chaîne commerciale, <strong>la marchandise et l'argent ne voyagent jamais dans le même sens</strong>. Le produit descend vers le client ; le paiement remonte vers le fournisseur. Les documents, eux, circulent dans les deux sens pour garder une trace écrite de chaque échange.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA EXPLORER -->
+  <section style="max-width:1100px; margin:0 auto; padding:44px 32px 80px;">
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:18px;">
+      <a href="Ensemble.dc.html" style="text-decoration:none;">
+        <div style="background:#fff; border:1px solid #e7e1d4; border-radius:16px; padding:26px; height:100%;">
+          <div style="font-size:28px; margin-bottom:10px;">🔄</div>
+          <h3 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:19px; margin:0 0 6px;">Comment elles travaillent ensemble</h3>
+          <p style="font-size:14px; color:#6f675a; line-height:1.5; margin:0 0 12px;">Le schéma complet des flux et un exemple interactif : que se passe-t-il, étape par étape, quand un client achète un vélo ?</p>
+          <span style="font-weight:600; font-size:14px;">Voir les flux →</span>
+        </div>
+      </a>
+      <a href="Glossaire.dc.html" style="text-decoration:none;">
+        <div style="background:#fff; border:1px solid #e7e1d4; border-radius:16px; padding:26px; height:100%;">
+          <div style="font-size:28px; margin-bottom:10px;">📚</div>
+          <h3 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:19px; margin:0 0 6px;">Glossaire</h3>
+          <p style="font-size:14px; color:#6f675a; line-height:1.5; margin:0 0 12px;">Tous les termes commerciaux clés — débiteur, créancier, bon de commande, marge, stock de sécurité — expliqués simplement.</p>
+          <span style="font-weight:600; font-size:14px;">Ouvrir le glossaire →</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="border-top:1px solid #e7e1d4; padding:28px 32px; text-align:center;">
+    <p style="font-family:'Space Mono',monospace; font-size:12px; color:#9a917f; margin:0;">VéloFlux · écosystème fictif à but pédagogique · données d'exemple inventées</p>
+  </footer>
+
+</div>
+</x-dc>
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: #f6f3ec; font-family: 'Figtree', sans-serif; color: #221e18; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+</style>
+</helmet>
+
+<div style="min-height:100vh; background:#f6f3ec;">
+
+  <!-- NAV -->
+  <nav style="position:sticky; top:0; z-index:50; display:flex; align-items:center; justify-content:space-between; gap:24px; padding:14px 32px; background:rgba(246,243,236,0.88); backdrop-filter:blur(10px); border-bottom:1px solid #e7e1d4;">
+    <a href="Accueil.dc.html" style="display:flex; align-items:center; gap:10px; text-decoration:none;">
+      <span style="display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border-radius:9px; background:#221e18; color:#f6f3ec; font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:18px;">V</span>
+      <span style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:18px; letter-spacing:-0.02em;">VéloFlux</span>
+    </a>
+    <div style="display:flex; align-items:center; gap:4px; flex-wrap:wrap;">
+      <a href="Accueil.dc.html" style="text-decoration:none; font-weight:500; font-size:14px; padding:7px 12px; border-radius:8px; color:#3a3429;">Accueil</a>
+      <a href="VeloTech.dc.html" style="text-decoration:none; font-weight:500; font-size:14px; padding:7px 12px; border-radius:8px; color:#3a3429;">VeloTech</a>
+      <a href="StockFlow.dc.html" style="text-decoration:none; font-weight:600; font-size:14px; padding:7px 12px; border-radius:8px; background:#b07d18; color:#fff;">StockFlow</a>
+      <a href="CycloShop.dc.html" style="text-decoration:none; font-weight:500; font-size:14px; padding:7px 12px; border-radius:8px; color:#3a3429;">CycloShop</a>
+      <a href="Ensemble.dc.html" style="text-decoration:none; font-weight:500; font-size:14px; padding:7px 12px; border-radius:8px; color:#3a3429;">Comment elles travaillent ensemble</a>
+      <a href="Glossaire.dc.html" style="text-decoration:none; font-weight:500; font-size:14px; padding:7px 12px; border-radius:8px; color:#3a3429;">Glossaire</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header style="background:#f6ecd6; border-bottom:1px solid #e6d2a8;">
+    <div style="max-width:1040px; margin:0 auto; padding:56px 32px;">
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:18px;">
+        <span style="font-size:34px;">📦</span>
+        <span style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.08em; color:#946716; background:#fff; padding:5px 12px; border-radius:999px; border:1px solid #e6d2a8;">ENTREPRISE 2 / 3 · LA LOGISTIQUE</span>
+      </div>
+      <h1 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:52px; line-height:1.04; letter-spacing:-0.03em; margin:0 0 18px; color:#946716;">StockFlow Sàrl</h1>
+      <p style="font-size:21px; line-height:1.5; color:#40391f; max-width:680px; margin:0 0 26px;"><strong>Mission :</strong> réceptionner les vélos fabriqués, les stocker en sécurité, surveiller les niveaux et expédier au bon moment vers le magasin.</p>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <div style="background:#fff; border:1px solid #e6d2a8; border-radius:12px; padding:12px 18px;"><div style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:22px; color:#946716;">2 000 m²</div><div style="font-size:12px; color:#6f675a;">entrepôt central</div></div>
+        <div style="background:#fff; border:1px solid #e6d2a8; border-radius:12px; padding:12px 18px;"><div style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:22px; color:#946716;">800 vélos</div><div style="font-size:12px; color:#6f675a;">capacité de stockage</div></div>
+        <div style="background:#fff; border:1px solid #e6d2a8; border-radius:12px; padding:12px 18px;"><div style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:22px; color:#946716;">60 vélos</div><div style="font-size:12px; color:#6f675a;">stock de sécurité</div></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ORGANIGRAMME -->
+  <section style="max-width:1040px; margin:0 auto; padding:56px 32px 8px;">
+    <p style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.08em; color:#6f675a; margin:0 0 8px;">ORGANIGRAMME</p>
+    <h2 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:30px; letter-spacing:-0.02em; margin:0 0 8px;">Qui fait quoi chez StockFlow</h2>
+    <p style="font-size:15px; color:#6f675a; margin:0 0 30px; max-width:640px;">Une direction et quatre départements organisés autour de l'entrepôt.</p>
+
+    <div style="display:flex; flex-direction:column; align-items:center;">
+      <div style="background:#b07d18; color:#fff; border-radius:14px; padding:18px 26px; text-align:center; min-width:260px;">
+        <div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.06em; opacity:0.85;">DIRECTION</div>
+        <div style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:19px; margin-top:4px;">David Lehmann</div>
+        <div style="font-size:13px; opacity:0.92;">Directeur</div>
+      </div>
+      <div style="width:2px; height:28px; background:#e6d2a8;"></div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:14px;">
+      <div style="background:#fff; border:1px solid #ecdcb8; border-radius:14px; padding:18px;">
+        <div style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:0.05em; color:#946716;">RÉCEPTION & CONTRÔLE</div>
+        <div style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:16px; margin:4px 0 2px;">Nadia Cherif</div>
+        <div style="font-size:12px; color:#6f675a; margin-bottom:10px;">Responsable réception</div>
+        <div style="font-size:12px; color:#4a4338; line-height:1.5; border-top:1px solid #f1e7d4; padding-top:8px;">Vérifie que chaque livraison de VeloTech correspond au bulletin de livraison.</div>
+        <div style="font-size:11px; color:#8a8170; margin-top:8px;">+ 3 manutentionnaires</div>
+      </div>
+      <div style="background:#fff; border:1px solid #ecdcb8; border-radius:14px; padding:18px;">
+        <div style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:0.05em; color:#946716;">GESTION DES STOCKS</div>
+        <div style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:16px; margin:4px 0 2px;">Paolo Ferrari</div>
+        <div style="font-size:12px; color:#6f675a; margin-bottom:10px;">Gestionnaire de stock</div>
+        <div style="font-size:12px; color:#4a4338; line-height:1.5; border-top:1px solid #f1e7d4; padding-top:8px;">Surveille les quantités et recommande à VeloTech dès que le seuil de sécurité est atteint.</div>
+        <div style="font-size:11px; color:#8a8170; margin-top:8px;">+ 1 apprenti·e de commerce</div>
+      </div>
+      <div style="background:#fff; border:1px solid #ecdcb8; border-radius:14px; padding:18px;">
+        <div style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:0.05em; color:#946716;">PRÉPARATION & EXPÉDITION</div>
+        <div style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:16px; margin:4px 0 2px;">Elena Vogt</div>
+        <div style="font-size:12px; color:#6f675a; margin-bottom:10px;">Cheffe d'expédition</div>
+        <div style="font-size:12px; color:#4a4338; line-height:1.5; border-top:1px solid #f1e7d4; padding-top:8px;">Prépare les commandes de CycloShop (picking) et organise les livraisons.</div>
+        <div style="font-size:11px; color:#8a8170; margin-top:8px;">+ 5 préparateur·rice·s · 2 caristes</div>
+      </div>
+      <div style="background:#fff; border:1px solid #ecdcb8; border-radius:14px; padding:18px;">
+        <div style="font-family:'Space Mono',monospace; font-size:10px; letter-spacing:0.05em; color:#946716;">ADMIN. & FACTURATION</div>
+        <div style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:16px; margin:4px 0 2px;">Julie Meyer</div>
+        <div style="font-size:12px; color:#6f675a; margin-bottom:10px;">Responsable administrative</div>
+        <div style="font-size:12px; color:#4a4338; line-height:1.5; border-top:1px solid #f1e7d4; padding-top:8px;">Reçoit les factures de VeloTech, facture CycloShop et suit les paiements.</div>
+        <div style="font-size:11px; color:#8a8170; margin-top:8px;">+ 1 comptable</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESSUS -->
+  <section style="max-width:1040px; margin:0 auto; padding:56px 32px 8px;">
+    <p style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.08em; color:#6f675a; margin:0 0 8px;">PROCESSUS INTERNE</p>
+    <h2 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:30px; letter-spacing:-0.02em; margin:0 0 8px;">De la réception à l'expédition</h2>
+    <p style="font-size:15px; color:#6f675a; margin:0 0 30px; max-width:640px;">Le rôle de StockFlow est d'avoir toujours assez de vélos en stock — ni trop, ni trop peu.</p>
+
+    <div style="display:flex; flex-direction:column; gap:0;">
+      <div style="display:flex; gap:20px;">
+        <div style="display:flex; flex-direction:column; align-items:center;">
+          <div style="width:42px; height:42px; border-radius:50%; background:#b07d18; color:#fff; display:flex; align-items:center; justify-content:center; font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:18px; flex-shrink:0;">1</div>
+          <div style="width:2px; flex:1; background:#e6d2a8; min-height:24px;"></div>
+        </div>
+        <div style="padding-bottom:24px;">
+          <h3 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:19px; margin:6px 0 6px;">Réception & contrôle</h3>
+          <p style="font-size:14px; color:#4a4338; line-height:1.55; margin:0 0 8px; max-width:640px;">À l'arrivée du camion de VeloTech, on compare la marchandise au <strong>bulletin de livraison</strong>. Quantité juste ? État correct ? Si oui, la réception est validée.</p>
+          <span style="font-family:'Space Mono',monospace; font-size:11px; color:#946716; background:#f6ecd6; padding:3px 9px; border-radius:6px;">📄 Bulletin de livraison contrôlé</span>
+        </div>
+      </div>
+      <div style="display:flex; gap:20px;">
+        <div style="display:flex; flex-direction:column; align-items:center;">
+          <div style="width:42px; height:42px; border-radius:50%; background:#b07d18; color:#fff; display:flex; align-items:center; justify-content:center; font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:18px; flex-shrink:0;">2</div>
+          <div style="width:2px; flex:1; background:#e6d2a8; min-height:24px;"></div>
+        </div>
+        <div style="padding-bottom:24px;">
+          <h3 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:19px; margin:6px 0 6px;">Mise en stock</h3>
+          <p style="font-size:14px; color:#4a4338; line-height:1.55; margin:0 0 8px; max-width:640px;">Les vélos sont rangés à un emplacement précis de l'entrepôt et <strong>enregistrés dans le logiciel de stock</strong> (une « entrée de stock »). On sait à tout moment combien de vélos sont disponibles.</p>
+          <span style="font-family:'Space Mono',monospace; font-size:11px; color:#946716; background:#f6ecd6; padding:3px 9px; border-radius:6px;">📄 Entrée de stock (interne)</span>
+        </div>
+      </div>
+      <div style="display:flex; gap:20px;">
+        <div style="display:flex; flex-direction:column; align-items:center;">
+          <div style="width:42px; height:42px; border-radius:50%; background:#b07d18; color:#fff; display:flex; align-items:center; justify-content:center; font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:18px; flex-shrink:0;">3</div>
+          <div style="width:2px; flex:1; background:#e6d2a8; min-height:24px;"></div>
+        </div>
+        <div style="padding-bottom:24px;">
+          <h3 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:19px; margin:6px 0 6px;">Surveillance des niveaux & réapprovisionnement</h3>
+          <p style="font-size:14px; color:#4a4338; line-height:1.55; margin:0 0 8px; max-width:640px;">Le gestionnaire surveille le stock. Dès qu'il descend sous le <strong>stock de sécurité</strong> (60 vélos), il envoie un <strong>bon de commande</strong> à VeloTech pour recompléter — avant la rupture.</p>
+          <span style="font-family:'Space Mono',monospace; font-size:11px; color:#946716; background:#f6ecd6; padding:3px 9px; border-radius:6px;">📄 Bon de commande émis → VeloTech</span>
+        </div>
+      </div>
+      <div style="display:flex; gap:20px;">
+        <div style="display:flex; flex-direction:column; align-items:center;">
+          <div style="width:42px; height:42px; border-radius:50%; background:#b07d18; color:#fff; display:flex; align-items:center; justify-content:center; font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:18px; flex-shrink:0;">4</div>
+          <div style="width:2px; flex:1; background:#e6d2a8; min-height:24px;"></div>
+        </div>
+        <div style="padding-bottom:24px;">
+          <h3 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:19px; margin:6px 0 6px;">Préparation de commande</h3>
+          <p style="font-size:14px; color:#4a4338; line-height:1.55; margin:0 0 8px; max-width:640px;">Quand CycloShop passe un <strong>bon de commande</strong>, les préparateur·rice·s prélèvent les vélos demandés dans l'entrepôt (le « picking ») selon un bon de préparation.</p>
+          <span style="font-family:'Space Mono',monospace; font-size:11px; color:#946716; background:#f6ecd6; padding:3px 9px; border-radius:6px;">📄 Bon de commande reçu ← CycloShop</span>
+        </div>
+      </div>
+      <div style="display:flex; gap:20px;">
+        <div style="display:flex; flex-direction:column; align-items:center;">
+          <div style="width:42px; height:42px; border-radius:50%; background:#b07d18; color:#fff; display:flex; align-items:center; justify-content:center; font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:18px; flex-shrink:0;">5</div>
+        </div>
+        <div>
+          <h3 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:19px; margin:6px 0 6px;">Expédition vers CycloShop</h3>
+          <p style="font-size:14px; color:#4a4338; line-height:1.55; margin:0 0 8px; max-width:640px;">Les vélos partent vers le magasin avec un <strong>bulletin de livraison</strong>. StockFlow envoie ensuite une <strong>facture</strong> à CycloShop et enregistre une « sortie de stock ».</p>
+          <span style="font-family:'Space Mono',monospace; font-size:11px; color:#946716; background:#f6ecd6; padding:3px 9px; border-radius:6px;">📄 Bulletin de livraison + Facture émis → CycloShop</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOCUMENTS -->
+  <section style="max-width:1040px; margin:0 auto; padding:56px 32px 8px;">
+    <p style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.08em; color:#6f675a; margin:0 0 8px;">DOCUMENTS</p>
+    <h2 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:30px; letter-spacing:-0.02em; margin:0 0 26px;">Ce que StockFlow émet et reçoit</h2>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px;">
+      <div style="background:#fff; border:1px solid #e7e1d4; border-radius:16px; padding:24px;">
+        <div style="font-weight:700; font-size:15px; color:#946716; margin-bottom:14px;">📤 Documents émis</div>
+        <ul style="margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:10px;">
+          <li style="font-size:14px; line-height:1.4;"><strong>Bon de commande</strong> <span style="color:#6f675a;">→ à VeloTech (réapprovisionnement)</span></li>
+          <li style="font-size:14px; line-height:1.4;"><strong>Bulletin de livraison</strong> <span style="color:#6f675a;">→ à CycloShop</span></li>
+          <li style="font-size:14px; line-height:1.4;"><strong>Facture</strong> <span style="color:#6f675a;">→ à CycloShop</span></li>
+          <li style="font-size:14px; line-height:1.4;"><strong>Quittance</strong> <span style="color:#6f675a;">→ confirme un paiement reçu</span></li>
+        </ul>
+      </div>
+      <div style="background:#fff; border:1px solid #e7e1d4; border-radius:16px; padding:24px;">
+        <div style="font-weight:700; font-size:15px; color:#2f6f4e; margin-bottom:14px;">📥 Documents reçus</div>
+        <ul style="margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:10px;">
+          <li style="font-size:14px; line-height:1.4;"><strong>Bon de commande</strong> <span style="color:#6f675a;">← de CycloShop</span></li>
+          <li style="font-size:14px; line-height:1.4;"><strong>Bulletin de livraison</strong> <span style="color:#6f675a;">← de VeloTech</span></li>
+          <li style="font-size:14px; line-height:1.4;"><strong>Facture fournisseur</strong> <span style="color:#6f675a;">← de VeloTech (à payer)</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- LE SAVAIS-TU -->
+  <section style="max-width:1040px; margin:0 auto; padding:44px 32px 8px;">
+    <div style="background:#fff; border:1px solid #e7e1d4; border-left:5px solid #b07d18; border-radius:14px; padding:24px 26px; display:flex; gap:18px; align-items:flex-start;">
+      <span style="font-size:30px;">🧐</span>
+      <div>
+        <p style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.06em; color:#946716; margin:0 0 6px;">LE SAVAIS-TU ?</p>
+        <p style="font-size:15px; line-height:1.55; margin:0; max-width:740px;">Le <strong>stock de sécurité</strong> est une réserve « au cas où » : il protège contre les imprévus (retard de livraison, pic de ventes). Sans lui, une simple panne de camion chez VeloTech pourrait laisser le magasin sans vélos à vendre. Trop de stock coûte cher ; pas assez fait perdre des ventes. Tout l'art de la logistique est de trouver le bon équilibre.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEXT -->
+  <section style="max-width:1040px; margin:0 auto; padding:36px 32px 80px;">
+    <a href="CycloShop.dc.html" style="text-decoration:none; display:block;">
+      <div style="background:#e7edf8; border:1px solid #c5d4ef; border-radius:16px; padding:24px 26px; display:flex; align-items:center; justify-content:space-between; gap:16px;">
+        <div>
+          <div style="font-family:'Space Mono',monospace; font-size:11px; color:#2f5fae;">SUITE · ENTREPRISE 3 / 3</div>
+          <div style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:22px; color:#2f5fae; margin-top:2px;">🛒 CycloShop SA — la vente</div>
+        </div>
+        <span style="font-size:22px; color:#2f5fae;">→</span>
+      </div>
+    </a>
+  </section>
+
+  <footer style="border-top:1px solid #e7e1d4; padding:28px 32px; text-align:center;">
+    <p style="font-family:'Space Mono',monospace; font-size:12px; color:#9a917f; margin:0;">VéloFlux · écosystème fictif à but pédagogique · données d'exemple inventées</p>
+  </footer>
+
+</div>
+</x-dc>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: #f6f3ec; font-family: 'Figtree', sans-serif; color: #221e18; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  input::placeholder { color: #a89e8a; }
+</style>
+</helmet>
+
+<div style="min-height:100vh; background:#f6f3ec;">
+
+  <!-- NAV -->
+  <nav style="position:sticky; top:0; z-index:50; display:flex; align-items:center; justify-content:space-between; gap:24px; padding:14px 32px; background:rgba(246,243,236,0.88); backdrop-filter:blur(10px); border-bottom:1px solid #e7e1d4;">
+    <a href="Accueil.dc.html" style="display:flex; align-items:center; gap:10px; text-decoration:none;">
+      <span style="display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border-radius:9px; background:#221e18; color:#f6f3ec; font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:18px;">V</span>
+      <span style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:18px; letter-spacing:-0.02em;">VéloFlux</span>
+    </a>
+    <div style="display:flex; align-items:center; gap:4px; flex-wrap:wrap;">
+      <a href="Accueil.dc.html" style="text-decoration:none; font-weight:500; font-size:14px; padding:7px 12px; border-radius:8px; color:#3a3429;">Accueil</a>
+      <a href="VeloTech.dc.html" style="text-decoration:none; font-weight:500; font-size:14px; padding:7px 12px; border-radius:8px; color:#3a3429;">VeloTech</a>
+      <a href="StockFlow.dc.html" style="text-decoration:none; font-weight:500; font-size:14px; padding:7px 12px; border-radius:8px; color:#3a3429;">StockFlow</a>
+      <a href="CycloShop.dc.html" style="text-decoration:none; font-weight:500; font-size:14px; padding:7px 12px; border-radius:8px; color:#3a3429;">CycloShop</a>
+      <a href="Ensemble.dc.html" style="text-decoration:none; font-weight:500; font-size:14px; padding:7px 12px; border-radius:8px; color:#3a3429;">Comment elles travaillent ensemble</a>
+      <a href="Glossaire.dc.html" style="text-decoration:none; font-weight:600; font-size:14px; padding:7px 12px; border-radius:8px; background:#221e18; color:#f6f3ec;">Glossaire</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header style="max-width:960px; margin:0 auto; padding:64px 32px 24px;">
+    <div style="display:inline-flex; align-items:center; gap:8px; padding:6px 14px; border-radius:999px; background:#fff; border:1px solid #e7e1d4; font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.04em; color:#6f675a; margin-bottom:24px;">📚 GLOSSAIRE</div>
+    <h1 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:54px; line-height:1.03; letter-spacing:-0.03em; margin:0 0 18px;">Les mots de l'entreprise, expliqués simplement</h1>
+    <p style="font-size:20px; line-height:1.55; color:#4a4338; max-width:660px; margin:0 0 28px;">Tous les termes commerciaux clés croisés dans le site, définis sans jargon. Cherche un mot ou parcours la liste.</p>
+
+    <!-- recherche -->
+    <div style="display:flex; align-items:center; gap:10px; background:#fff; border:1px solid #e7e1d4; border-radius:12px; padding:12px 16px; max-width:460px;">
+      <span style="font-size:18px;">🔍</span>
+      <input type="text" value="{{ query }}" onInput="{{ onSearch }}" placeholder="Rechercher un terme…" style="border:none; outline:none; background:transparent; font-family:'Figtree',sans-serif; font-size:16px; color:#221e18; width:100%;" />
+    </div>
+    <p style="font-family:'Space Mono',monospace; font-size:12px; color:#9a917f; margin:14px 0 0;">{{ countLabel }}</p>
+  </header>
+
+  <!-- LISTE -->
+  <section style="max-width:960px; margin:0 auto; padding:16px 32px 80px;">
+    <div style="display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:16px;">
+      <sc-for list="{{ terms }}" as="t" hint-placeholder-count="12">
+        <div style="background:#fff; border:1px solid #e7e1d4; border-radius:14px; padding:20px 22px;">
+          <div style="display:flex; align-items:flex-start; justify-content:space-between; gap:10px; margin-bottom:8px;">
+            <h3 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:18px; margin:0; letter-spacing:-0.01em;">{{ t.term }}</h3>
+            <span style="{{ t.chipStyle }}">{{ t.cat }}</span>
+          </div>
+          <p style="font-size:14px; line-height:1.55; color:#4a4338; margin:0;">{{ t.def }}</p>
+        </div>
+      </sc-for>
+    </div>
+
+    <sc-if value="{{ empty }}" hint-placeholder-val="{{ false }}">
+      <div style="text-align:center; padding:48px 0; color:#9a917f;">
+        <div style="font-size:38px; margin-bottom:10px;">🤷</div>
+        <p style="font-size:16px; margin:0;">Aucun terme ne correspond à « {{ query }} ».</p>
+      </div>
+    </sc-if>
+  </section>
+
+  <footer style="border-top:1px solid #e7e1d4; padding:28px 32px; text-align:center;">
+    <p style="font-family:'Space Mono',monospace; font-size:12px; color:#9a917f; margin:0;">VéloFlux · écosystème fictif à but pédagogique · données d'exemple inventées</p>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { query: "" };
+
+  cats = {
+    Document: { color: "#5b5447", bg: "#efece4" },
+    Finance: { color: "#a8730f", bg: "#f7eed7" },
+    Logistique: { color: "#1f7a6b", bg: "#e3f1ee" },
+    Vente: { color: "#2f5fae", bg: "#e7edf8" },
+    Production: { color: "#2f6f4e", bg: "#e9f1ec" },
+  };
+
+  data = [
+    { term: "Approvisionnement", cat: "Production", def: "Le fait d'acheter les matières premières et les composants nécessaires à la production." },
+    { term: "B2B", cat: "Vente", def: "« Business to Business » : commerce entre entreprises. VeloTech vend à StockFlow en B2B, par opposition au B2C (vente à un particulier)." },
+    { term: "Bénéfice", cat: "Finance", def: "Ce qui reste à l'entreprise une fois toutes les charges (salaires, loyer, matières) retirées du chiffre d'affaires." },
+    { term: "Bon de commande", cat: "Document", def: "Document par lequel un acheteur commande des marchandises à un fournisseur : quantité, prix convenu et délai de livraison." },
+    { term: "Bulletin de livraison", cat: "Document", def: "Document qui accompagne la marchandise livrée et liste son contenu. Il sert à vérifier que la réception est complète." },
+    { term: "Chiffre d'affaires", cat: "Finance", def: "Le total des ventes réalisées sur une période, avant déduction des charges." },
+    { term: "Contrôle qualité", cat: "Production", def: "La vérification que chaque produit fonctionne et est conforme avant d'être expédié au client." },
+    { term: "Créancier", cat: "Finance", def: "Celui à qui on doit de l'argent : il a livré ou vendu et attend d'être payé." },
+    { term: "Débiteur", cat: "Finance", def: "Celui qui doit de l'argent : il a reçu la marchandise et doit encore payer la facture." },
+    { term: "Devis", cat: "Vente", def: "Une proposition de prix détaillée remise au client avant l'achat, sans engagement de sa part." },
+    { term: "Facture", cat: "Document", def: "Document qui réclame le paiement d'une marchandise livrée : montant, TVA et délai de paiement." },
+    { term: "Flux financier", cat: "Finance", def: "La circulation de l'argent dans la chaîne. Il remonte vers les fournisseurs, en sens inverse de la marchandise." },
+    { term: "Flux physique", cat: "Logistique", def: "La circulation des marchandises, du fournisseur (amont) jusqu'au client final (aval)." },
+    { term: "Fournisseur", cat: "Vente", def: "Une entreprise qui vend des biens ou des services à une autre entreprise." },
+    { term: "Grossiste", cat: "Logistique", def: "Un intermédiaire qui achète en grande quantité et revend à des détaillants. StockFlow joue ce rôle." },
+    { term: "Marge brute", cat: "Finance", def: "La différence entre le prix de vente d'un produit et son coût d'achat ou de production." },
+    { term: "Ordre de fabrication", cat: "Production", def: "Document interne qui lance la production d'une quantité donnée de produits, pour une date donnée." },
+    { term: "Picking", cat: "Logistique", def: "L'action de prélever dans l'entrepôt les articles correspondant à une commande à préparer." },
+    { term: "Quittance", cat: "Document", def: "Document qui prouve qu'un paiement a bien été reçu. Le ticket de caisse en est une forme." },
+    { term: "Rupture de stock", cat: "Logistique", def: "La situation où il n'y a plus de produit disponible à vendre — à éviter à tout prix." },
+    { term: "Stock de sécurité", cat: "Logistique", def: "Une réserve minimale conservée en permanence pour éviter la rupture en cas d'imprévu (retard, pic de ventes)." },
+    { term: "TVA", cat: "Finance", def: "Taxe sur la valeur ajoutée : un pourcentage ajouté au prix, que l'entreprise collecte puis reverse à l'État." },
+    { term: "Vente au détail", cat: "Vente", def: "Vendre à l'unité au client final, comme le fait CycloShop dans son magasin." },
+    { term: "Vente en gros", cat: "Vente", def: "Vendre en grande quantité à un revendeur, à un prix réduit par rapport au détail." },
+  ];
+
+  onSearch = (e) => this.setState({ query: e.target.value });
+
+  renderVals() {
+    const q = this.state.query.trim().toLowerCase();
+    const filtered = this.data.filter(
+      (d) => !q || d.term.toLowerCase().includes(q) || d.def.toLowerCase().includes(q)
+    );
+    const terms = filtered.map((d) => {
+      const c = this.cats[d.cat];
+      return {
+        term: d.term,
+        def: d.def,
+        cat: d.cat,
+        chipStyle: `flex-shrink:0; font-family:'Space Mono',monospace; font-size:10px; font-weight:700; letter-spacing:0.04em; padding:4px 9px; border-radius:999px; color:${c.color}; background:${c.bg};`,
+      };
+    });
+    return {
+      query: this.state.query,
+      onSearch: this.onSearch,
+      terms,
+      empty: filtered.length === 0,
+      countLabel: q
+        ? `${filtered.length} terme${filtered.length > 1 ? "s" : ""} trouvé${filtered.length > 1 ? "s" : ""}`
+        : `${this.data.length} termes · classés par ordre alphabétique`,
+    };
+  }
+}
+</script>
+</body>
+</html>
