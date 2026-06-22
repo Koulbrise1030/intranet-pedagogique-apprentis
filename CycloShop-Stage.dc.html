@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: #f6f3ec; font-family: 'Figtree', sans-serif; color: #221e18; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  button { font: inherit; }
+</style>
+</helmet>
+
+<div style="min-height:100vh; background:#f6f3ec;">
+
+  <!-- NAV -->
+  <nav style="position:sticky; top:0; z-index:50; display:flex; align-items:center; justify-content:space-between; gap:24px; padding:14px 32px; background:rgba(246,243,236,0.88); backdrop-filter:blur(10px); border-bottom:1px solid #e7e1d4;">
+    <a href="Accueil.dc.html" style="display:flex; align-items:center; gap:10px; text-decoration:none;">
+      <span style="display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border-radius:9px; background:#221e18; color:#f6f3ec; font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:18px;">V</span>
+      <span style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:18px; letter-spacing:-0.02em;">VéloFlux</span>
+    </a>
+    <div style="display:flex; align-items:center; gap:4px; flex-wrap:wrap;">
+      <a href="Accueil.dc.html" style="text-decoration:none; font-weight:500; font-size:14px; padding:7px 12px; border-radius:8px; color:#3a3429;">Accueil</a>
+      <a href="VeloTech.dc.html" style="text-decoration:none; font-weight:500; font-size:14px; padding:7px 12px; border-radius:8px; color:#3a3429;">VeloTech</a>
+      <a href="StockFlow.dc.html" style="text-decoration:none; font-weight:500; font-size:14px; padding:7px 12px; border-radius:8px; color:#3a3429;">StockFlow</a>
+      <a href="CycloShop.dc.html" style="text-decoration:none; font-weight:600; font-size:14px; padding:7px 12px; border-radius:8px; background:#2f5fae; color:#fff;">CycloShop</a>
+      <a href="Ensemble.dc.html" style="text-decoration:none; font-weight:500; font-size:14px; padding:7px 12px; border-radius:8px; color:#3a3429;">Comment elles travaillent ensemble</a>
+      <a href="Glossaire.dc.html" style="text-decoration:none; font-weight:500; font-size:14px; padding:7px 12px; border-radius:8px; color:#3a3429;">Glossaire</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header style="background:#e7edf8; border-bottom:1px solid #c5d4ef;">
+    <div style="max-width:760px; margin:0 auto; padding:56px 32px 40px;">
+      <div style="display:flex; align-items:center; gap:10px; margin-bottom:18px;">
+        <span style="font-size:34px;">🎮</span>
+        <span style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.08em; color:#2f5fae; background:#fff; padding:5px 12px; border-radius:999px; border:1px solid #c5d4ef;">CYCLOSHOP · MODE APPRENTI</span>
+      </div>
+      <h1 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:800; font-size:42px; line-height:1.06; letter-spacing:-0.03em; margin:0 0 16px; color:#2f5fae;">Une journée chez CycloShop</h1>
+      <p style="font-size:18px; line-height:1.55; color:#26324a; max-width:620px; margin:0;">Mets-toi à la place d'un·e employé·e de CycloShop. À chaque étape, une situation et trois choix possibles : à toi de prendre la meilleure décision.</p>
+    </div>
+  </header>
+
+  <!-- QUIZ -->
+  <section style="max-width:760px; margin:0 auto; padding:48px 32px 16px;">
+    <sc-if value="{{ quizActive }}" hint-placeholder-val="{{ true }}">
+      <p style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.06em; color:#6f675a; margin:0 0 22px;">{{ progressLabel }}</p>
+
+      <div style="background:#fff; border:1px solid #d3deef; border-radius:18px; padding:28px 26px; margin-bottom:18px;">
+        <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+          <span style="font-size:24px;">{{ emoji }}</span>
+          <h2 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:21px; margin:0; letter-spacing:-0.01em;">{{ title }}</h2>
+        </div>
+        <p style="font-size:15px; line-height:1.6; color:#3a3429; margin:0;">{{ situation }}</p>
+      </div>
+
+      <sc-for list="{{ options }}" as="opt" hint-placeholder-count="3">
+        <button style="{{ opt.style }}" onClick="{{ opt.onClick }}">{{ opt.label }}</button>
+      </sc-for>
+
+      <sc-if value="{{ showFeedback }}" hint-placeholder-val="{{ false }}">
+        <div style="{{ feedback.boxStyle }}">
+          <p style="{{ feedback.badgeStyle }}; margin:0 0 6px;">{{ feedback.badgeLabel }}</p>
+          <p style="font-size:14px; line-height:1.55; color:#3a3429; margin:0 0 16px;">{{ feedback.text }}</p>
+          <button onClick="{{ nextStep }}" style="background:#221e18; color:#f6f3ec; border:none; border-radius:10px; padding:10px 20px; font-weight:600; font-size:14px; cursor:pointer;">{{ nextLabel }} →</button>
+        </div>
+      </sc-if>
+    </sc-if>
+
+    <!-- RESULTAT -->
+    <sc-if value="{{ finished }}" hint-placeholder-val="{{ false }}">
+      <div style="background:#fff; border:1px solid #e7e1d4; border-radius:18px; padding:32px 28px; text-align:center; margin-bottom:24px;">
+        <div style="font-size:38px; margin-bottom:8px;">🏁</div>
+        <h2 style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:26px; margin:0 0 6px;">Stage terminé !</h2>
+        <p style="font-family:'Space Mono',monospace; font-size:14px; color:#2f5fae; margin:0;">{{ scoreLabel }}</p>
+      </div>
+
+      <p style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.06em; color:#6f675a; margin:0 0 12px;">RÉCAPITULATIF DE TES CHOIX</p>
+      <sc-for list="{{ recap }}" as="r" hint-placeholder-count="6">
+        <div style="background:#fff; border:1px solid #e7e1d4; border-radius:14px; padding:16px 20px; margin-bottom:10px; display:flex; align-items:flex-start; justify-content:space-between; gap:14px;">
+          <div>
+            <div style="font-family:'Bricolage Grotesque',sans-serif; font-weight:700; font-size:14px; margin-bottom:4px;">{{ r.title }}</div>
+            <div style="font-size:13px; color:#4a4338; line-height:1.5;">{{ r.label }}</div>
+          </div>
+          <span style="{{ r.badgeStyle }}; flex-shrink:0;">{{ r.badgeLabel }}</span>
+        </div>
+      </sc-for>
+
+      <div style="display:flex; gap:12px; margin-top:24px; flex-wrap:wrap;">
+        <button onClick="{{ restart }}" style="background:#fff; border:1px solid #d3deef; color:#2f5fae; border-radius:10px; padding:10px 20px; font-weight:600; font-size:14px; cursor:pointer;">↻ Recommencer le stage</button>
+        <a href="CycloShop.dc.html" style="text-decoration:none; background:#221e18; color:#f6f3ec; border-radius:10px; padding:10px 20px; font-weight:600; font-size:14px; display:inline-flex; align-items:center;">Retour à la page CycloShop</a>
+      </div>
+    </sc-if>
+  </section>
+
+  <footer style="border-top:1px solid #e7e1d4; padding:28px 32px; text-align:center; margin-top:24px;">
+    <p style="font-family:'Space Mono',monospace; font-size:12px; color:#9a917f; margin:0;">VéloFlux · écosystème fictif à but pédagogique · données d'exemple inventées</p>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const STORAGE_KEY = "veloflux_cycloshop_stage";
+
+const STEPS = [
+  {
+    title: "Accueil & conseil",
+    emoji: "🙋",
+    situation: "Un client entre dans le magasin. Il dit : « Je cherche un vélo, mais je ne sais pas trop lequel. »",
+    options: [
+      { label: "Lui poser des questions sur son usage (trajets, distance, budget) avant de proposer un modèle", points: 10, feedback: "Bien vu : comprendre le besoin avant de proposer un modèle évite un achat qui ne convient pas, et un client déçu qui revient se plaindre." },
+      { label: "Lui montrer directement le vélo le plus cher du magasin", points: 0, feedback: "Risqué : sans connaître son besoin, tu proposes peut-être un vélo mal adapté. Le client peut repartir sans acheter." },
+      { label: "Lui dire de regarder seul et de revenir s'il a une question", points: 3, feedback: "Pas faux, mais un client qui découvre le vélo électrique a surtout besoin d'être accompagné dès le départ." },
+    ],
+  },
+  {
+    title: "Devis",
+    emoji: "📄",
+    situation: "Le client est intéressé par un modèle à CHF 2990, avec quelques accessoires en option.",
+    options: [
+      { label: "Établir un devis écrit détaillant le prix et les options, sans engagement", points: 10, feedback: "Exactement : le devis permet au client de comparer et de réfléchir, sans rien lui faire signer." },
+      { label: "Lui demander un acompte tout de suite pour « bloquer » le prix", points: 0, feedback: "On ne fait jamais payer pour un simple devis : le client n'est pas encore engagé." },
+      { label: "Lui donner un prix à l'oral, sans rien écrire", points: 3, feedback: "Un prix donné à l'oral n'engage à rien et peut créer des malentendus plus tard ; mieux vaut l'écrire." },
+    ],
+  },
+  {
+    title: "Vente",
+    emoji: "🤝",
+    situation: "Le client revient le lendemain : il accepte le devis.",
+    options: [
+      { label: "Confirmer la vente et transmettre la préparation du vélo à l'atelier", points: 10, feedback: "Parfait : le devis devient une vente, et l'atelier prépare le vélo pendant que tu finalises la commande." },
+      { label: "Profiter du moment pour lui vendre des accessoires dont il n'a pas parlé", points: 0, feedback: "La vente sous pression abîme la confiance du client : ce n'est pas ce qu'on attend de toi ici." },
+      { label: "Lui proposer de revenir signer un autre jour", points: 3, feedback: "Si le client est prêt à acheter, mieux vaut finaliser maintenant plutôt que de risquer qu'il change d'avis." },
+    ],
+  },
+  {
+    title: "Encaissement",
+    emoji: "💳",
+    situation: "Le client veut payer par TWINT.",
+    options: [
+      { label: "Encaisser le paiement et remettre une quittance", points: 10, feedback: "Correct : la quittance est la preuve légale que le client a payé, indispensable quel que soit le moyen de paiement." },
+      { label: "Encaisser sans remettre de preuve de paiement", points: 0, feedback: "Sans quittance, rien ne prouve que le client a payé : un problème en cas de litige ou de contrôle." },
+      { label: "Lui dire que TWINT n'est pas accepté ici", points: 0, feedback: "TWINT fait partie des moyens de paiement acceptés chez CycloShop, comme la carte, les espèces ou la facture." },
+    ],
+  },
+  {
+    title: "Service après-vente",
+    emoji: "🔧",
+    situation: "Trois mois plus tard, le client revient : son vélo fait un bruit suspect.",
+    options: [
+      { label: "L'orienter vers l'atelier pour un contrôle sous garantie", points: 10, feedback: "C'est le rôle du SAV : un bon suivi après l'achat fidélise le client et donne une bonne image de CycloShop." },
+      { label: "Lui dire que ce n'est plus le problème du magasin", points: 0, feedback: "Mauvaise idée : la garantie et le SAV font partie de la prestation vendue avec le vélo." },
+      { label: "Lui proposer directement de racheter un vélo neuf", points: 3, feedback: "Trop rapide : un contrôle ou une réparation sous garantie suffit souvent, pas besoin de pousser un rachat." },
+    ],
+  },
+  {
+    title: "Réapprovisionnement",
+    emoji: "🔄",
+    situation: "Le modèle le plus vendu commence à manquer en rayon.",
+    options: [
+      { label: "Envoyer un bon de commande à StockFlow avant la rupture totale", points: 10, feedback: "Bonne anticipation : commander avant la rupture évite de perdre des ventes faute de stock." },
+      { label: "Attendre que le stock soit à zéro pour commander", points: 0, feedback: "Trop tard : pendant le délai de livraison, CycloShop ne pourra plus vendre ce modèle." },
+      { label: "Commander directement à VeloTech, en sautant StockFlow", points: 0, feedback: "CycloShop commande à StockFlow, pas directement au fabricant ; c'est StockFlow qui gère la relation avec VeloTech." },
+    ],
+  },
+];
+
+function feedbackMeta(points) {
+  if (points >= 10) return { label: "✅ Bon réflexe", color: "#1f7a6b", bg: "#e3f1ee" };
+  if (points > 0) return { label: "🟡 Pas idéal", color: "#946716", bg: "#f6ecd6" };
+  return { label: "❌ À éviter", color: "#b3261e", bg: "#fbe4e2" };
+}
+
+class Component extends DCLogic {
+  state = { step: 0, selected: null, answers: [], finished: false };
+
+  persist(next) {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
+    } catch (e) {}
+  }
+
+  componentDidMount() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) this.setState(JSON.parse(raw));
+    } catch (e) {}
+  }
+
+  selectOption = (i) => {
+    if (this.state.selected != null) return;
+    const next = { ...this.state, selected: i };
+    this.persist(next);
+    this.setState(next);
+  };
+
+  nextStep = () => {
+    const { step, selected, answers } = this.state;
+    const opt = STEPS[step].options[selected];
+    const newAnswers = [...answers, { step, optionIndex: selected, points: opt.points }];
+    const isLast = step === STEPS.length - 1;
+    const next = {
+      step: isLast ? step : step + 1,
+      selected: null,
+      answers: newAnswers,
+      finished: isLast,
+    };
+    this.persist(next);
+    this.setState(next);
+  };
+
+  restart = () => {
+    const next = { step: 0, selected: null, answers: [], finished: false };
+    try {
+      localStorage.removeItem(STORAGE_KEY);
+    } catch (e) {}
+    this.setState(next);
+  };
+
+  renderVals() {
+    const { step, selected, answers, finished } = this.state;
+
+    if (finished) {
+      const score = answers.reduce((s, a) => s + a.points, 0);
+      const maxScore = STEPS.length * 10;
+      const recap = answers.map((a) => {
+        const s = STEPS[a.step];
+        const opt = s.options[a.optionIndex];
+        const meta = feedbackMeta(opt.points);
+        return {
+          title: `${s.emoji} ${s.title}`,
+          label: opt.label,
+          badgeLabel: meta.label,
+          badgeStyle: `font-family:'Space Mono',monospace; font-size:11px; font-weight:700; padding:3px 9px; border-radius:999px; color:${meta.color}; background:${meta.bg};`,
+        };
+      });
+      return {
+        quizActive: false,
+        finished: true,
+        scoreLabel: `${score} / ${maxScore} points`,
+        recap,
+        restart: this.restart,
+      };
+    }
+
+    const current = STEPS[step];
+    const options = current.options.map((o, i) => {
+      const isSelected = selected === i;
+      const locked = selected != null;
+      const border = isSelected ? feedbackMeta(o.points).color : "#d3deef";
+      return {
+        label: o.label,
+        style: `display:block; width:100%; text-align:left; background:#fff; border:2px solid ${border}; border-radius:12px; padding:14px 18px; margin-bottom:10px; font-size:15px; color:#221e18; cursor:${locked ? "default" : "pointer"}; opacity:${locked && !isSelected ? 0.55 : 1};`,
+        onClick: () => this.selectOption(i),
+      };
+    });
+
+    let feedback = null;
+    if (selected != null) {
+      const opt = current.options[selected];
+      const meta = feedbackMeta(opt.points);
+      feedback = {
+        badgeLabel: meta.label,
+        text: opt.feedback,
+        boxStyle: `background:${meta.bg}; border-left:5px solid ${meta.color}; border-radius:14px; padding:18px 20px; margin-top:6px;`,
+        badgeStyle: `font-family:'Space Mono',monospace; font-size:11px; font-weight:700; letter-spacing:0.04em; color:${meta.color};`,
+      };
+    }
+
+    return {
+      quizActive: true,
+      finished: false,
+      progressLabel: `Étape ${step + 1} / ${STEPS.length}`,
+      emoji: current.emoji,
+      title: current.title,
+      situation: current.situation,
+      options,
+      showFeedback: selected != null,
+      feedback,
+      nextStep: this.nextStep,
+      nextLabel: step === STEPS.length - 1 ? "Voir mon résultat" : "Étape suivante",
+    };
+  }
+}
+</script>
+</body>
+</html>
