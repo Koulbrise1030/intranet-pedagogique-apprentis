@@ -63,7 +63,7 @@
         <p style="font-size:15px; line-height:1.6; color:#3a3429; margin:0;">{{ situation }}</p>
       </div>
 
-      <sc-for list="{{ options }}" as="opt" hint-placeholder-count="3">
+      <sc-for list="{{ options }}" as="opt" hint-placeholder-count="4">
         <button style="{{ opt.style }}" onClick="{{ opt.onClick }}">{{ opt.label }}</button>
       </sc-for>
 
@@ -120,6 +120,7 @@ const STEPS = [
       { label: "Lui poser des questions sur son usage (trajets, distance, budget) avant de proposer un modèle", points: 10, feedback: "Bien vu : comprendre le besoin avant de proposer un modèle évite un achat qui ne convient pas, et un client déçu qui revient se plaindre." },
       { label: "Lui montrer directement le vélo le plus cher du magasin", points: 0, feedback: "Risqué : sans connaître son besoin, tu proposes peut-être un vélo mal adapté. Le client peut repartir sans acheter." },
       { label: "Lui dire de regarder seul et de revenir s'il a une question", points: 3, feedback: "Pas faux, mais un client qui découvre le vélo électrique a surtout besoin d'être accompagné dès le départ." },
+      { label: "Lui présenter directement les 2-3 modèles les plus vendus du magasin", points: 6, feedback: "Mieux que rien, mais sans connaître son usage tu risques quand même de lui proposer un modèle peu adapté ; mieux vaut d'abord poser quelques questions." },
     ],
   },
   {
@@ -130,6 +131,7 @@ const STEPS = [
       { label: "Établir un devis écrit détaillant le prix et les options, sans engagement", points: 10, feedback: "Exactement : le devis permet au client de comparer et de réfléchir, sans rien lui faire signer." },
       { label: "Lui demander un acompte tout de suite pour « bloquer » le prix", points: 0, feedback: "On ne fait jamais payer pour un simple devis : le client n'est pas encore engagé." },
       { label: "Lui donner un prix à l'oral, sans rien écrire", points: 3, feedback: "Un prix donné à l'oral n'engage à rien et peut créer des malentendus plus tard ; mieux vaut l'écrire." },
+      { label: "Établir un devis écrit, mais avec un seul prix global sans détailler les options", points: 6, feedback: "Le principe du devis écrit est respecté, mais sans détail poste par poste, le client ne peut pas comparer ou retirer une option facilement." },
     ],
   },
   {
@@ -140,6 +142,7 @@ const STEPS = [
       { label: "Confirmer la vente et transmettre la préparation du vélo à l'atelier", points: 10, feedback: "Parfait : le devis devient une vente, et l'atelier prépare le vélo pendant que tu finalises la commande." },
       { label: "Profiter du moment pour lui vendre des accessoires dont il n'a pas parlé", points: 0, feedback: "La vente sous pression abîme la confiance du client : ce n'est pas ce qu'on attend de toi ici." },
       { label: "Lui proposer de revenir signer un autre jour", points: 3, feedback: "Si le client est prêt à acheter, mieux vaut finaliser maintenant plutôt que de risquer qu'il change d'avis." },
+      { label: "Confirmer la vente, sans en informer l'atelier tout de suite", points: 6, feedback: "La vente est bien confirmée, mais sans transmission immédiate à l'atelier, la préparation du vélo prend du retard et le client attend plus longtemps que prévu." },
     ],
   },
   {
@@ -150,6 +153,7 @@ const STEPS = [
       { label: "Encaisser le paiement et remettre une quittance", points: 10, feedback: "Correct : la quittance est la preuve légale que le client a payé, indispensable quel que soit le moyen de paiement." },
       { label: "Encaisser sans remettre de preuve de paiement", points: 0, feedback: "Sans quittance, rien ne prouve que le client a payé : un problème en cas de litige ou de contrôle." },
       { label: "Lui dire que TWINT n'est pas accepté ici", points: 0, feedback: "TWINT fait partie des moyens de paiement acceptés chez CycloShop, comme la carte, les espèces ou la facture." },
+      { label: "Encaisser le paiement et proposer d'envoyer la quittance par e-mail plus tard", points: 5, feedback: "Le client doit recevoir une preuve d'achat sur le moment ; la renvoyer « plus tard » n'est pas fiable et peut être oublié." },
     ],
   },
   {
@@ -160,6 +164,7 @@ const STEPS = [
       { label: "L'orienter vers l'atelier pour un contrôle sous garantie", points: 10, feedback: "C'est le rôle du SAV : un bon suivi après l'achat fidélise le client et donne une bonne image de CycloShop." },
       { label: "Lui dire que ce n'est plus le problème du magasin", points: 0, feedback: "Mauvaise idée : la garantie et le SAV font partie de la prestation vendue avec le vélo." },
       { label: "Lui proposer directement de racheter un vélo neuf", points: 3, feedback: "Trop rapide : un contrôle ou une réparation sous garantie suffit souvent, pas besoin de pousser un rachat." },
+      { label: "Lui dire de contacter directement VeloTech, le fabricant", points: 6, feedback: "Le client a acheté chez CycloShop, c'est donc CycloShop qui gère la garantie avec lui ; c'est à CycloShop de se retourner vers VeloTech si besoin, pas au client." },
     ],
   },
   {
@@ -170,9 +175,23 @@ const STEPS = [
       { label: "Envoyer un bon de commande à StockFlow avant la rupture totale", points: 10, feedback: "Bonne anticipation : commander avant la rupture évite de perdre des ventes faute de stock." },
       { label: "Attendre que le stock soit à zéro pour commander", points: 0, feedback: "Trop tard : pendant le délai de livraison, CycloShop ne pourra plus vendre ce modèle." },
       { label: "Commander directement à VeloTech, en sautant StockFlow", points: 0, feedback: "CycloShop commande à StockFlow, pas directement au fabricant ; c'est StockFlow qui gère la relation avec VeloTech." },
+      { label: "Envoyer le bon de commande à StockFlow, mais seulement une fois le dernier exemplaire vendu", points: 5, feedback: "C'est mieux que d'attendre une rupture prolongée, mais le but de l'anticipation est justement de commander avant que le dernier exemplaire parte." },
     ],
   },
 ];
+
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function freshOrders() {
+  return STEPS.map((s) => shuffle(s.options.map((_, i) => i)));
+}
 
 function feedbackMeta(points) {
   if (points >= 10) return { label: "✅ Bon réflexe", color: "#1f7a6b", bg: "#e3f1ee" };
@@ -181,7 +200,7 @@ function feedbackMeta(points) {
 }
 
 class Component extends DCLogic {
-  state = { step: 0, selected: null, answers: [], finished: false };
+  state = { step: 0, selected: null, answers: [], finished: false, orders: freshOrders() };
 
   persist(next) {
     try {
@@ -219,7 +238,7 @@ class Component extends DCLogic {
   };
 
   restart = () => {
-    const next = { step: 0, selected: null, answers: [], finished: false };
+    const next = { step: 0, selected: null, answers: [], finished: false, orders: freshOrders() };
     try {
       localStorage.removeItem(STORAGE_KEY);
     } catch (e) {}
@@ -227,7 +246,7 @@ class Component extends DCLogic {
   };
 
   renderVals() {
-    const { step, selected, answers, finished } = this.state;
+    const { step, selected, answers, finished, orders } = this.state;
 
     if (finished) {
       const score = answers.reduce((s, a) => s + a.points, 0);
@@ -253,14 +272,16 @@ class Component extends DCLogic {
     }
 
     const current = STEPS[step];
-    const options = current.options.map((o, i) => {
-      const isSelected = selected === i;
+    const order = (orders && orders[step]) || current.options.map((_, i) => i);
+    const options = order.map((origI) => {
+      const o = current.options[origI];
+      const isSelected = selected === origI;
       const locked = selected != null;
       const border = isSelected ? feedbackMeta(o.points).color : "#d3deef";
       return {
         label: o.label,
         style: `display:block; width:100%; text-align:left; background:#fff; border:2px solid ${border}; border-radius:12px; padding:14px 18px; margin-bottom:10px; font-size:15px; color:#221e18; cursor:${locked ? "default" : "pointer"}; opacity:${locked && !isSelected ? 0.55 : 1};`,
-        onClick: () => this.selectOption(i),
+        onClick: () => this.selectOption(origI),
       };
     });
 
